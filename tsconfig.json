@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "lib": ["ESNext"],
+    // 启用装饰器
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    // Modules
+    "module": "ESNext",
+    "moduleResolution": "node",
+    // javaScript not supported
+    "allowJs": false,
+    // Emit
+    "downlevelIteration": true,
+    "importHelpers": true,
+    "sourceMap": false,
+    "stripInternal": true,
+    // Constraints
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    // Type Checking
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true
+  },
+}

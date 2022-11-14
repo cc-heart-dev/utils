@@ -1,0 +1,26 @@
+{
+  "name": "@cc-heart/utils",
+  "version": "1.1.1",
+  "description": "Private configuration collections",
+  "main": "src/index.ts",
+  "type": "module",
+  "files": [
+    "src",
+    "types",
+    "tsconfig.json"
+  ],
+  "scripts": {
+    "start": "ts-node-esm src/index.ts"
+  },
+  "author": "heart",
+  "license": "MIT",
+  "dependencies": {
+    "consola": "^2.15.3"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.9",
+    "ts-node": "^10.9.1",
+    "tslib": "^2.4.1",
+    "typescript": "^4.8.4"
+  }
+}
