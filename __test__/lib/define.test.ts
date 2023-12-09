@@ -104,4 +104,15 @@ describe('defineThrottleFn', () => {
     jest.advanceTimersByTime(100)
     expect(fn).toHaveBeenCalledTimes(2)
   })
+
+  test('should call the function again after the default delay', () => {
+    const fn = jest.fn()
+    const throttledFn = defineThrottleFn(fn)
+
+    throttledFn()
+    jest.advanceTimersByTime(500)
+    throttledFn()
+
+    expect(fn).toHaveBeenCalledTimes(2)
+  })
 })
