@@ -11,7 +11,7 @@
   },
   "scripts": {
     "prebuild": "rimraf dist types",
-    "build": "pnpm prebuild && rollup -c && tsc -p tsconfig.build.json",
+    "build": "npm run prebuild && rollup -c && tsc -p tsconfig.build.json && npm run doc",
     "test": "npx jest",
     "gulp:deploy": "gulp deploy",
     "gulp:publish": "gulp publish",
