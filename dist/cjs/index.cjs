@@ -41,5 +41,7 @@ exports.isPrimitive = validate.isPrimitive;
 exports.isPromise = validate.isPromise;
 exports.isStr = validate.isStr;
 exports.isUndef = validate.isUndef;
+exports.compose = workers.compose;
 exports.executeConcurrency = workers.executeConcurrency;
 exports.executeQueue = workers.executeQueue;
+exports.pipe = workers.pipe;

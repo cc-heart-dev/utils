@@ -1,4 +1,4 @@
-<!DOCTYPE html><html class="default" lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>isUndef | @cc-heart/utils</title><meta name="description" content="Documentation for @cc-heart/utils"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="../assets/style.css"/><link rel="stylesheet" href="../assets/highlight.css"/><script defer src="../assets/main.js"></script><script async src="../assets/search.js" id="tsd-search-script"></script><script async src="../assets/navigation.js" id="tsd-nav-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os"</script><header class="tsd-page-toolbar">
+<!DOCTYPE html><html class="default" lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>compose | @cc-heart/utils</title><meta name="description" content="Documentation for @cc-heart/utils"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="../assets/style.css"/><link rel="stylesheet" href="../assets/highlight.css"/><script defer src="../assets/main.js"></script><script async src="../assets/search.js" id="tsd-search-script"></script><script async src="../assets/navigation.js" id="tsd-nav-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os"</script><header class="tsd-page-toolbar">
 <div class="tsd-toolbar-contents container">
 <div class="table-cell" id="tsd-search" data-base="..">
 <div class="field"><label for="tsd-search-field" class="tsd-widget tsd-toolbar-icon search no-caption"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><use href="#icon-search"></use></svg></label><input type="text" id="tsd-search-field" aria-label="Search"/></div>
@@ -13,27 +13,39 @@
 <div class="tsd-page-title">
 <ul class="tsd-breadcrumb">
 <li><a href="../modules.html">@cc-heart/utils</a></li>
-<li><a href="isUndef.html">isUndef</a></li></ul>
-<h1>Function isUndef</h1></div>
+<li><a href="compose.html">compose</a></li></ul>
+<h1>Function compose</h1></div>
 <section class="tsd-panel">
 <ul class="tsd-signatures">
-<li class="tsd-signature tsd-anchor-link" id="isUndef"><span class="tsd-kind-call-signature">is<wbr/>Undef</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">val</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-kind-parameter">val</span><span class="tsd-signature-symbol"> is </span><span class="tsd-signature-type">undefined</span><a href="#isUndef" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="compose"><span class="tsd-kind-call-signature">compose</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">fns</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">args</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><a href="#compose" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
-<div class="tsd-comment tsd-typography"><p>Checks if a value is undefined.</p>
+<div class="tsd-comment tsd-typography"><p>Takes a series of functions and returns a new function that runs these functions in reverse sequence.
+If a function returns a Promise, the next function is called with the resolved value.</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li>
-<h5><span class="tsd-kind-parameter">val</span>: <span class="tsd-signature-type">unknown</span></h5>
-<div class="tsd-comment tsd-typography"><p>The value to check.</p>
+<h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">fns</span>: <span class="tsd-signature-type ">fn</span><span class="tsd-signature-symbol">[]</span></h5>
+<div class="tsd-comment tsd-typography"><p>The functions to compose.</p>
 </div>
 <div class="tsd-comment tsd-typography"></div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-kind-parameter">val</span><span class="tsd-signature-symbol"> is </span><span class="tsd-signature-type">undefined</span></h4><p>Returns true if the value is undefined, otherwise false.</p>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">args</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span></h4><p>A new function that takes any number of arguments and composes them through <code>fns</code>.</p>
 
+<ul class="tsd-parameters">
+<li class="tsd-parameter-signature">
+<ul class="tsd-signatures">
+<li class="tsd-signature" id="compose.__type.__type-1"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">args</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+<li class="tsd-description">
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">args</span>: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4></li></ul></li></ul>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/cc-hearts/utils/blob/38facc9/lib/validate.ts#L49">lib/validate.ts:49</a></li></ul></aside></li></ul></section></div>
+<li>Defined in <a href="https://github.com/cc-hearts/utils/blob/38facc9/lib/workers.ts#L93">lib/workers.ts:93</a></li></ul></aside></li></ul></section></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">
@@ -55,7 +67,7 @@
 <li><a href="_toString.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-64"></use></svg>_toString</a></li>
 <li><a href="basename.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-64"></use></svg>basename</a></li>
 <li><a href="capitalize.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-64"></use></svg>capitalize</a></li>
-<li><a href="compose.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-64"></use></svg>compose</a></li>
+<li><a href="compose.html" class="current"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-64"></use></svg>compose</a></li>
 <li><a href="convertParamsRouterToRegExp.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-64"></use></svg>convertParamsRouterToRegExp</a></li>
 <li><a href="convertQueryString.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-64"></use></svg>convertQueryString</a></li>
 <li><a href="defineDebounceFn.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-64"></use></svg>defineDebounceFn</a></li>
