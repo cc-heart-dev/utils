@@ -1,4 +1,4 @@
-import { isPromise } from 'util/types'
+import { isPromise } from './validate'
 import { fn } from '../helper'
 import { isUndef } from './validate'
 
