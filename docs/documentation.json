@@ -16,7 +16,7 @@
           "fileName": "lib/validate.ts",
           "line": 1,
           "character": 13,
-          "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/validate.ts#L1"
+          "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/validate.ts#L1"
         }
       ],
       "signatures": [
@@ -59,7 +59,7 @@
           "fileName": "lib/url.ts",
           "line": 43,
           "character": 16,
-          "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/url.ts#L43"
+          "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/url.ts#L43"
         }
       ],
       "signatures": [
@@ -93,7 +93,7 @@
               "fileName": "lib/url.ts",
               "line": 43,
               "character": 16,
-              "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/url.ts#L43"
+              "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/url.ts#L43"
             }
           ],
           "parameters": [
@@ -156,7 +156,7 @@
           "fileName": "lib/string.ts",
           "line": 7,
           "character": 13,
-          "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/string.ts#L7"
+          "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/string.ts#L7"
         }
       ],
       "signatures": [
@@ -190,7 +190,7 @@
               "fileName": "lib/string.ts",
               "line": 7,
               "character": 26,
-              "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/string.ts#L7"
+              "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/string.ts#L7"
             }
           ],
           "typeParameter": [
@@ -260,7 +260,7 @@
           "fileName": "lib/workers.ts",
           "line": 93,
           "character": 16,
-          "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/workers.ts#L93"
+          "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/workers.ts#L93"
         }
       ],
       "signatures": [
@@ -302,7 +302,7 @@
               "fileName": "lib/workers.ts",
               "line": 93,
               "character": 16,
-              "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/workers.ts#L93"
+              "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/workers.ts#L93"
             }
           ],
           "parameters": [
@@ -349,7 +349,7 @@
                   "fileName": "lib/workers.ts",
                   "line": 73,
                   "character": 9,
-                  "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/workers.ts#L73"
+                  "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/workers.ts#L73"
                 }
               ],
               "signatures": [
@@ -364,7 +364,7 @@
                       "fileName": "lib/workers.ts",
                       "line": 73,
                       "character": 9,
-                      "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/workers.ts#L73"
+                      "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/workers.ts#L73"
                     }
                   ],
                   "parameters": [
@@ -407,7 +407,7 @@
           "fileName": "lib/url.ts",
           "line": 27,
           "character": 16,
-          "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/url.ts#L27"
+          "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/url.ts#L27"
         }
       ],
       "signatures": [
@@ -441,7 +441,7 @@
               "fileName": "lib/url.ts",
               "line": 27,
               "character": 16,
-              "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/url.ts#L27"
+              "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/url.ts#L27"
             }
           ],
           "parameters": [
@@ -512,7 +512,7 @@
           "fileName": "lib/url.ts",
           "line": 7,
           "character": 16,
-          "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/url.ts#L7"
+          "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/url.ts#L7"
         }
       ],
       "signatures": [
@@ -541,7 +541,7 @@
               "fileName": "lib/url.ts",
               "line": 7,
               "character": 16,
-              "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/url.ts#L7"
+              "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/url.ts#L7"
             }
           ],
           "typeParameter": [
@@ -613,7 +613,7 @@
           "fileName": "lib/define.ts",
           "line": 23,
           "character": 13,
-          "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/define.ts#L23"
+          "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/define.ts#L23"
         }
       ],
       "signatures": [
@@ -647,7 +647,7 @@
               "fileName": "lib/define.ts",
               "line": 9,
               "character": 2,
-              "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/define.ts#L9"
+              "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/define.ts#L9"
             }
           ],
           "parameters": [
@@ -736,7 +736,7 @@
           "fileName": "lib/define.ts",
           "line": 51,
           "character": 16,
-          "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/define.ts#L51"
+          "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/define.ts#L51"
         }
       ],
       "signatures": [
@@ -770,7 +770,7 @@
               "fileName": "lib/define.ts",
               "line": 51,
               "character": 16,
-              "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/define.ts#L51"
+              "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/define.ts#L51"
             }
           ],
           "typeParameter": [
@@ -810,7 +810,7 @@
                       "fileName": "lib/define.ts",
                       "line": 51,
                       "character": 36,
-                      "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/define.ts#L51"
+                      "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/define.ts#L51"
                     }
                   ],
                   "signatures": [
@@ -825,7 +825,7 @@
                           "fileName": "lib/define.ts",
                           "line": 51,
                           "character": 36,
-                          "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/define.ts#L51"
+                          "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/define.ts#L51"
                         }
                       ],
                       "parameters": [
@@ -877,7 +877,7 @@
                   "fileName": "lib/define.ts",
                   "line": 57,
                   "character": 9,
-                  "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/define.ts#L57"
+                  "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/define.ts#L57"
                 }
               ],
               "signatures": [
@@ -892,7 +892,7 @@
                       "fileName": "lib/define.ts",
                       "line": 57,
                       "character": 9,
-                      "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/define.ts#L57"
+                      "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/define.ts#L57"
                     }
                   ],
                   "parameters": [
@@ -954,7 +954,7 @@
           "fileName": "lib/define.ts",
           "line": 72,
           "character": 16,
-          "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/define.ts#L72"
+          "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/define.ts#L72"
         }
       ],
       "signatures": [
@@ -988,7 +988,7 @@
               "fileName": "lib/define.ts",
               "line": 72,
               "character": 16,
-              "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/define.ts#L72"
+              "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/define.ts#L72"
             }
           ],
           "parameters": [
@@ -1060,7 +1060,7 @@
           "fileName": "lib/workers.ts",
           "line": 5,
           "character": 22,
-          "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/workers.ts#L5"
+          "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/workers.ts#L5"
         }
       ],
       "signatures": [
@@ -1075,7 +1075,7 @@
               "fileName": "lib/workers.ts",
               "line": 5,
               "character": 22,
-              "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/workers.ts#L5"
+              "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/workers.ts#L5"
             }
           ],
           "parameters": [
@@ -1151,7 +1151,7 @@
           "fileName": "lib/workers.ts",
           "line": 37,
           "character": 16,
-          "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/workers.ts#L37"
+          "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/workers.ts#L37"
         }
       ],
       "signatures": [
@@ -1185,7 +1185,7 @@
               "fileName": "lib/workers.ts",
               "line": 37,
               "character": 16,
-              "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/workers.ts#L37"
+              "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/workers.ts#L37"
             }
           ],
           "parameters": [
@@ -1218,7 +1218,7 @@
                         "fileName": "lib/workers.ts",
                         "line": 38,
                         "character": 19,
-                        "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/workers.ts#L38"
+                        "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/workers.ts#L38"
                       }
                     ],
                     "signatures": [
@@ -1233,7 +1233,7 @@
                             "fileName": "lib/workers.ts",
                             "line": 38,
                             "character": 19,
-                            "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/workers.ts#L38"
+                            "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/workers.ts#L38"
                           }
                         ],
                         "parameters": [
@@ -1291,7 +1291,7 @@
           "fileName": "lib/date.ts",
           "line": 5,
           "character": 16,
-          "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/date.ts#L5"
+          "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/date.ts#L5"
         }
       ],
       "signatures": [
@@ -1325,7 +1325,7 @@
               "fileName": "lib/date.ts",
               "line": 5,
               "character": 16,
-              "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/date.ts#L5"
+              "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/date.ts#L5"
             }
           ],
           "type": {
@@ -1346,7 +1346,7 @@
           "fileName": "lib/validate.ts",
           "line": 151,
           "character": 16,
-          "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/validate.ts#L151"
+          "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/validate.ts#L151"
         }
       ],
       "signatures": [
@@ -1380,7 +1380,7 @@
               "fileName": "lib/validate.ts",
               "line": 151,
               "character": 16,
-              "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/validate.ts#L151"
+              "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/validate.ts#L151"
             }
           ],
           "parameters": [
@@ -1441,7 +1441,7 @@
           "fileName": "lib/validate.ts",
           "line": 125,
           "character": 16,
-          "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/validate.ts#L125"
+          "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/validate.ts#L125"
         }
       ],
       "signatures": [
@@ -1475,7 +1475,7 @@
               "fileName": "lib/validate.ts",
               "line": 125,
               "character": 16,
-              "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/validate.ts#L125"
+              "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/validate.ts#L125"
             }
           ],
           "parameters": [
@@ -1544,7 +1544,7 @@
                       "fileName": "lib/validate.ts",
                       "line": 128,
                       "character": 16,
-                      "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/validate.ts#L128"
+                      "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/validate.ts#L128"
                     }
                   ],
                   "signatures": [
@@ -1559,7 +1559,7 @@
                           "fileName": "lib/validate.ts",
                           "line": 128,
                           "character": 16,
-                          "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/validate.ts#L128"
+                          "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/validate.ts#L128"
                         }
                       ],
                       "parameters": [
@@ -1614,7 +1614,7 @@
           "fileName": "lib/validate.ts",
           "line": 39,
           "character": 16,
-          "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/validate.ts#L39"
+          "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/validate.ts#L39"
         }
       ],
       "signatures": [
@@ -1648,7 +1648,7 @@
               "fileName": "lib/validate.ts",
               "line": 39,
               "character": 16,
-              "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/validate.ts#L39"
+              "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/validate.ts#L39"
             }
           ],
           "parameters": [
@@ -1695,7 +1695,7 @@
           "fileName": "lib/validate.ts",
           "line": 98,
           "character": 16,
-          "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/validate.ts#L98"
+          "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/validate.ts#L98"
         }
       ],
       "signatures": [
@@ -1724,7 +1724,7 @@
               "fileName": "lib/validate.ts",
               "line": 98,
               "character": 16,
-              "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/validate.ts#L98"
+              "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/validate.ts#L98"
             }
           ],
           "parameters": [
@@ -1763,7 +1763,7 @@
           "fileName": "lib/validate.ts",
           "line": 79,
           "character": 16,
-          "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/validate.ts#L79"
+          "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/validate.ts#L79"
         }
       ],
       "signatures": [
@@ -1797,7 +1797,7 @@
               "fileName": "lib/validate.ts",
               "line": 79,
               "character": 16,
-              "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/validate.ts#L79"
+              "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/validate.ts#L79"
             }
           ],
           "parameters": [
@@ -1844,7 +1844,7 @@
           "fileName": "lib/validate.ts",
           "line": 19,
           "character": 16,
-          "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/validate.ts#L19"
+          "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/validate.ts#L19"
         }
       ],
       "signatures": [
@@ -1878,7 +1878,7 @@
               "fileName": "lib/validate.ts",
               "line": 19,
               "character": 16,
-              "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/validate.ts#L19"
+              "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/validate.ts#L19"
             }
           ],
           "parameters": [
@@ -1930,7 +1930,7 @@
           "fileName": "lib/validate.ts",
           "line": 59,
           "character": 16,
-          "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/validate.ts#L59"
+          "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/validate.ts#L59"
         }
       ],
       "signatures": [
@@ -1964,7 +1964,7 @@
               "fileName": "lib/validate.ts",
               "line": 59,
               "character": 16,
-              "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/validate.ts#L59"
+              "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/validate.ts#L59"
             }
           ],
           "parameters": [
@@ -2011,7 +2011,7 @@
           "fileName": "lib/validate.ts",
           "line": 89,
           "character": 16,
-          "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/validate.ts#L89"
+          "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/validate.ts#L89"
         }
       ],
       "signatures": [
@@ -2045,7 +2045,7 @@
               "fileName": "lib/validate.ts",
               "line": 89,
               "character": 16,
-              "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/validate.ts#L89"
+              "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/validate.ts#L89"
             }
           ],
           "parameters": [
@@ -2092,7 +2092,7 @@
           "fileName": "lib/validate.ts",
           "line": 9,
           "character": 16,
-          "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/validate.ts#L9"
+          "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/validate.ts#L9"
         }
       ],
       "signatures": [
@@ -2126,7 +2126,7 @@
               "fileName": "lib/validate.ts",
               "line": 9,
               "character": 16,
-              "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/validate.ts#L9"
+              "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/validate.ts#L9"
             }
           ],
           "parameters": [
@@ -2173,7 +2173,7 @@
           "fileName": "lib/validate.ts",
           "line": 69,
           "character": 16,
-          "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/validate.ts#L69"
+          "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/validate.ts#L69"
         }
       ],
       "signatures": [
@@ -2223,7 +2223,7 @@
               "fileName": "lib/validate.ts",
               "line": 69,
               "character": 16,
-              "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/validate.ts#L69"
+              "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/validate.ts#L69"
             }
           ],
           "parameters": [
@@ -2265,7 +2265,7 @@
           "fileName": "lib/validate.ts",
           "line": 109,
           "character": 16,
-          "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/validate.ts#L109"
+          "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/validate.ts#L109"
         }
       ],
       "signatures": [
@@ -2315,7 +2315,7 @@
               "fileName": "lib/validate.ts",
               "line": 109,
               "character": 16,
-              "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/validate.ts#L109"
+              "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/validate.ts#L109"
             }
           ],
           "parameters": [
@@ -2373,7 +2373,7 @@
           "fileName": "lib/validate.ts",
           "line": 29,
           "character": 16,
-          "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/validate.ts#L29"
+          "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/validate.ts#L29"
         }
       ],
       "signatures": [
@@ -2407,7 +2407,7 @@
               "fileName": "lib/validate.ts",
               "line": 29,
               "character": 16,
-              "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/validate.ts#L29"
+              "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/validate.ts#L29"
             }
           ],
           "parameters": [
@@ -2454,7 +2454,7 @@
           "fileName": "lib/validate.ts",
           "line": 49,
           "character": 16,
-          "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/validate.ts#L49"
+          "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/validate.ts#L49"
         }
       ],
       "signatures": [
@@ -2488,7 +2488,7 @@
               "fileName": "lib/validate.ts",
               "line": 49,
               "character": 16,
-              "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/validate.ts#L49"
+              "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/validate.ts#L49"
             }
           ],
           "parameters": [
@@ -2535,7 +2535,7 @@
           "fileName": "lib/string.ts",
           "line": 26,
           "character": 16,
-          "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/string.ts#L26"
+          "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/string.ts#L26"
         }
       ],
       "signatures": [
@@ -2573,7 +2573,7 @@
               "fileName": "lib/string.ts",
               "line": 26,
               "character": 16,
-              "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/string.ts#L26"
+              "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/string.ts#L26"
             }
           ],
           "parameters": [
@@ -2657,7 +2657,7 @@
           "fileName": "lib/shard.ts",
           "line": 6,
           "character": 13,
-          "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/shard.ts#L6"
+          "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/shard.ts#L6"
         }
       ],
       "signatures": [
@@ -2691,7 +2691,7 @@
               "fileName": "lib/shard.ts",
               "line": 6,
               "character": 20,
-              "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/shard.ts#L6"
+              "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/shard.ts#L6"
             }
           ],
           "type": {
@@ -2712,7 +2712,7 @@
           "fileName": "lib/workers.ts",
           "line": 72,
           "character": 16,
-          "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/workers.ts#L72"
+          "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/workers.ts#L72"
         }
       ],
       "signatures": [
@@ -2754,7 +2754,7 @@
               "fileName": "lib/workers.ts",
               "line": 72,
               "character": 16,
-              "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/workers.ts#L72"
+              "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/workers.ts#L72"
             }
           ],
           "parameters": [
@@ -2801,7 +2801,7 @@
                   "fileName": "lib/workers.ts",
                   "line": 73,
                   "character": 9,
-                  "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/workers.ts#L73"
+                  "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/workers.ts#L73"
                 }
               ],
               "signatures": [
@@ -2816,7 +2816,7 @@
                       "fileName": "lib/workers.ts",
                       "line": 73,
                       "character": 9,
-                      "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/workers.ts#L73"
+                      "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/workers.ts#L73"
                     }
                   ],
                   "parameters": [
@@ -2859,7 +2859,7 @@
           "fileName": "lib/random.ts",
           "line": 8,
           "character": 16,
-          "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/random.ts#L8"
+          "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/random.ts#L8"
         }
       ],
       "signatures": [
@@ -2893,7 +2893,7 @@
               "fileName": "lib/random.ts",
               "line": 8,
               "character": 16,
-              "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/random.ts#L8"
+              "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/random.ts#L8"
             }
           ],
           "parameters": [
@@ -2954,7 +2954,7 @@
           "fileName": "lib/crypto.ts",
           "line": 6,
           "character": 16,
-          "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/crypto.ts#L6"
+          "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/crypto.ts#L6"
         }
       ],
       "signatures": [
@@ -2988,7 +2988,7 @@
               "fileName": "lib/crypto.ts",
               "line": 6,
               "character": 16,
-              "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/crypto.ts#L6"
+              "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/crypto.ts#L6"
             }
           ],
           "type": {
@@ -3009,7 +3009,7 @@
           "fileName": "lib/shard.ts",
           "line": 16,
           "character": 13,
-          "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/shard.ts#L16"
+          "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/shard.ts#L16"
         }
       ],
       "signatures": [
@@ -3043,7 +3043,7 @@
               "fileName": "lib/shard.ts",
               "line": 16,
               "character": 21,
-              "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/shard.ts#L16"
+              "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/shard.ts#L16"
             }
           ],
           "parameters": [
@@ -3096,7 +3096,7 @@
           "fileName": "lib/string.ts",
           "line": 16,
           "character": 13,
-          "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/string.ts#L16"
+          "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/string.ts#L16"
         }
       ],
       "signatures": [
@@ -3130,7 +3130,7 @@
               "fileName": "lib/string.ts",
               "line": 16,
               "character": 28,
-              "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/string.ts#L16"
+              "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/string.ts#L16"
             }
           ],
           "typeParameter": [
@@ -3200,7 +3200,7 @@
           "fileName": "lib/string.ts",
           "line": 43,
           "character": 16,
-          "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/string.ts#L43"
+          "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/string.ts#L43"
         }
       ],
       "signatures": [
@@ -3234,7 +3234,7 @@
               "fileName": "lib/string.ts",
               "line": 43,
               "character": 16,
-              "url": "https://github.com/cc-hearts/utils/blob/38facc9/lib/string.ts#L43"
+              "url": "https://github.com/cc-hearts/utils/blob/31eca4a/lib/string.ts#L43"
             }
           ],
           "parameters": [
