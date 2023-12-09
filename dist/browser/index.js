@@ -1,5 +1,3 @@
-import { isPromise as isPromise$1 } from 'util/types';
-
 /**
  * Generates a random UUID.
  *
@@ -444,7 +442,7 @@ function pipe(...fns) {
         if (fns.length === 0)
             return args[0];
         return fns.reduce((arg, fn, index) => {
-            if (isPromise$1(arg)) {
+            if (isPromise(arg)) {
                 return arg.then((res) => {
                     return fn(...definePrams(res, index));
                 });

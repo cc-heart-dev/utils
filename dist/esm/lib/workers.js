@@ -1,5 +1,4 @@
-import { isPromise } from 'util/types';
-import { isUndef } from './validate.js';
+import { isUndef, isPromise } from './validate.js';
 
 async function executeConcurrency(tasks, maxConcurrency) {
     if (isUndef(maxConcurrency)) {

@@ -1,6 +1,5 @@
 'use strict';
 
-var types = require('util/types');
 var validate = require('./validate.cjs');
 
 async function executeConcurrency(tasks, maxConcurrency) {
@@ -65,7 +64,7 @@ function pipe(...fns) {
         if (fns.length === 0)
             return args[0];
         return fns.reduce((arg, fn, index) => {
-            if (types.isPromise(arg)) {
+            if (validate.isPromise(arg)) {
                 return arg.then((res) => {
                     return fn(...definePrams(res, index));
                 });
