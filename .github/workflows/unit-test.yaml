@@ -3,7 +3,8 @@ name: Unit Tests
 on:
   push:
     branches:
-      - main
+      - '*'
+
 
 jobs:
   build:
