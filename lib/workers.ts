@@ -1,3 +1,4 @@
+import { isPromise } from 'util/types'
 import { fn } from '../helper'
 import { isUndef } from './validate'
 
@@ -52,4 +53,43 @@ export function executeQueue(
     }
     loopFunc()
   })
+}
+
+const definePrams = (params: any, index: number) => {
+  if (index === 0 && Array.isArray(params)) {
+    return params
+  }
+  return [params]
+}
+
+/**
+ * Takes a series of functions and returns a new function that runs these functions in sequence.
+ * If a function returns a Promise, the next function is called with the resolved value.
+ *
+ * @param {...Array<fn>} fns - The functions to pipe.
+ * @returns {function} A new function that takes any number of arguments and pipes them through `fns`.
+ */
+export function pipe(...fns: Array<fn>) {
+  return (...args: any[]) => {
+    if (fns.length === 0) return args[0]
+    return fns.reduce((arg, fn, index) => {
+      if (isPromise(arg)) {
+        return arg.then((res) => {
+          return fn(...definePrams(res, index))
+        })
+      }
+      return fn(...definePrams(arg, index))
+    }, args)
+  }
+}
+
+/**
+ * Takes a series of functions and returns a new function that runs these functions in reverse sequence.
+ * If a function returns a Promise, the next function is called with the resolved value.
+ *
+ * @param {...Array<fn>} fns - The functions to compose.
+ * @returns {function} A new function that takes any number of arguments and composes them through `fns`.
+ */
+export function compose(...fns: Array<fn>) {
+  return pipe(...fns.reverse())
 }

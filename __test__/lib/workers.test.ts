@@ -1,4 +1,9 @@
-import { executeConcurrency, executeQueue } from '../../lib/workers'
+import {
+  executeConcurrency,
+  executeQueue,
+  pipe,
+  compose,
+} from '../../lib/workers'
 
 describe('executeConcurrency module', () => {
   it('should return a promise that resolves with an array of results', async () => {
@@ -135,5 +140,61 @@ describe('invoke task queue', () => {
       expect(taskArray[1]).toHaveBeenCalled()
       expect(taskArray[2]).toHaveBeenCalled()
     })
+  })
+})
+
+describe('pipe', () => {
+  test('should correctly pipe the output of one function into the next', () => {
+    const addTwo = (num: number) => num + 2
+    const multiplyByThree = (num: number) => num * 3
+    const subtractFive = (num: number) => num - 5
+
+    const pipedFunction = pipe(addTwo, multiplyByThree, subtractFive)
+
+    expect(pipedFunction(5)).toEqual(16)
+  })
+
+  test('should handle promises correctly', async () => {
+    const addTwo = (num: number) => Promise.resolve(num + 2)
+    const multiplyByThree = (num: number) => num * 3
+    const subtractFive = (num: number) => num - 5
+
+    const pipedFunction = pipe(addTwo, multiplyByThree, subtractFive)
+
+    expect(await pipedFunction(5)).toEqual(16)
+  })
+
+  test('should return the input unchanged when no functions are provided', () => {
+    const pipedFunction = pipe()
+
+    expect(pipedFunction(5)).toEqual(5)
+  })
+})
+
+describe('compose', () => {
+  test('should correctly compose the output of one function into the next', () => {
+    const addTwo = (num: number) => num + 2
+    const multiplyByThree = (num: number) => num * 3
+    const subtractFive = (num: number) => num - 5
+
+    const composedFunction = compose(subtractFive, multiplyByThree, addTwo)
+
+    expect(composedFunction(5)).toEqual(16)
+  })
+
+  test('should handle promises correctly', async () => {
+    const addTwo = (num: number) => Promise.resolve(num + 2)
+    const multiplyByThree = (num: number) => num * 3
+    const subtractFive = (num: number) => num - 5
+
+    const composedFunction = compose(subtractFive, multiplyByThree, addTwo)
+
+    expect(await composedFunction(5)).toEqual(16)
+  })
+
+  test('should return the input unchanged when no functions are provided', () => {
+    const composedFunction = compose()
+
+    expect(composedFunction(5)).toEqual(5)
   })
 })
