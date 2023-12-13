@@ -1,21 +1,49 @@
+import type { QueryStringToObject } from '../typings/url'
+import { hasOwn } from './validate'
+
 /**
- * convert query string to object
+ * Converts a query string to an object.
  *
- * @param url http url
- * @returns
+ * @example `queryStringToObject('foo=1&bar=2&baz=3')`
+ * @example `queryStringToObject('foo=&bar=2&baz=3')`
+ * @example `queryStringToObject('foo[0]=1&foo[1]=2&baz=3')`
+ * @template T - The type of the URL string.
+ * @template U - The type of the object to return.
+ * @param {T} url - The URL string to convert.
+ * @returns {U} The object representation of the query string in `url`.
  */
-export function convertQueryString<T extends Record<string, string>>(
-  url: string,
-): T {
+export function queryStringToObject<
+  T extends string,
+  U extends Record<PropertyKey, any> = QueryStringToObject<T>,
+>(url: T): U {
   const query = url.split('?')[1]
-  const result = {} as T
+  const result = {} as U
   if (query) {
     query.split('&').forEach((item) => {
       const [key, value] = item.split('=')
-      Reflect.set(result, key, decodeURIComponent(value))
+      Reflect.set(result, decodeURIComponent(key), decodeURIComponent(value))
     })
   }
   return result
+}
+
+/**
+ * Converts an object to a query string.
+ *
+ * @param {Record<PropertyKey, any>} data - The object to convert.
+ * @returns {string} The query string representation of `data`.
+ */
+export function objectToQueryString<T extends Record<PropertyKey, any>>(
+  data: T,
+): string {
+  const res = []
+  for (const key in data) {
+    if (hasOwn(data, key)) {
+      res.push(`${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+    }
+  }
+
+  return res.join('&')
 }
 
 /**

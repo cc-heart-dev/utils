@@ -1,36 +1,37 @@
 import {
   convertParamsRouterToRegExp,
-  convertQueryString,
+  queryStringToObject,
+  objectToQueryString,
   basename,
 } from '../../lib/url'
 
 describe('convertQueryString', () => {
   test('should return an empty object if no query string is provided', () => {
-    expect(convertQueryString('http://example.com')).toEqual({})
+    expect(queryStringToObject('http://example.com')).toEqual({})
   })
 
   test('should return an object with query parameters', () => {
     const url = 'http://example.com/?foo=bar&baz=qux'
     const expected = { foo: 'bar', baz: 'qux' }
-    expect(convertQueryString(url)).toEqual(expected)
+    expect(queryStringToObject(url)).toEqual(expected)
   })
 
   test('should handle URL-encoded values', () => {
     const url = 'http://example.com/?q=hello%20world'
     const expected = { q: 'hello world' }
-    expect(convertQueryString(url)).toEqual(expected)
+    expect(queryStringToObject(url)).toEqual(expected)
   })
 
   test('should handle empty keys', () => {
     const url = 'http://example.com/?=empty&foo=bar'
     const expected = { '': 'empty', foo: 'bar' }
-    expect(convertQueryString(url)).toEqual(expected)
+    expect(queryStringToObject(url)).toEqual(expected)
   })
 
   test('should handle empty values', () => {
     const url = 'http://example.com/?foo=&bar='
     const expected = { foo: '', bar: '' }
-    expect(convertQueryString(url)).toEqual(expected)
+    expect(queryStringToObject(url)).toEqual(expected)
   })
 })
 
@@ -90,5 +91,30 @@ describe('basename', () => {
   test('should return an empty string if the path ends with a separator', () => {
     const path = '/path/to/file/'
     expect(basename(path)).toEqual('')
+  })
+})
+
+describe('objectToQueryString', () => {
+  test('should return an empty string if no data is provided', () => {
+    expect(objectToQueryString({})).toEqual('')
+  })
+
+  test('should return a query string for a simple object', () => {
+    const data = { foo: 'bar', baz: 'qux' }
+    const expected = 'foo=bar&baz=qux'
+    expect(objectToQueryString(data)).toEqual(expected)
+  })
+
+  test('should handle URL-encoding of keys and values', () => {
+    const data = { 'hello world': 'foo bar', 'baz/qux': 'quux/corge' }
+    const expected = 'hello%20world=foo%20bar&baz%2Fqux=quux%2Fcorge'
+    expect(objectToQueryString(data)).toEqual(expected)
+  })
+
+  test('should ignore properties in the prototype chain', () => {
+    const data = Object.create({ foo: 'bar' })
+    data.baz = 'qux'
+    const expected = 'baz=qux'
+    expect(objectToQueryString(data)).toEqual(expected)
   })
 })
