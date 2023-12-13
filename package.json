@@ -19,7 +19,7 @@
     "eslint": "npx eslint --fix .",
     "doc": "ts-node-esm ./scripts/generator-type-doc.ts",
     "cz": "npx commitizen",
-    "changelog": "conventional-changelog -p gitmoji-config -i CHANGELOG.md -s -r 5.0.0"
+    "changelog": "conventional-changelog -p gitmoji-config -i CHANGELOG_PRE.md -s -r 5.0.0"
   },
   "exports": {
     ".": [
