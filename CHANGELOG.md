@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.1.0
+
+- chore: update ignore&remove dist/docs ([10c61da](https://github.com/cc-hearts/utils/commit/10c61da))
+- chore: update gitignore&gulp ([da14fdd](https://github.com/cc-hearts/utils/commit/da14fdd))
+- feat: add url func & add types ([87f5d21](https://github.com/cc-hearts/utils/commit/87f5d21))
+
 ## 5.0.2
 
 - docs: update docs ([0059a45](https://github.com/cc-hearts/utils/commit/0059a45))
