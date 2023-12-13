@@ -6,3 +6,6 @@ publish.sh
 package-lock.json
 pnpm-lock.yaml
 yarn.lock
+
+docs/
+dist/

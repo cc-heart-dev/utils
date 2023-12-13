@@ -18,7 +18,6 @@ function test(done) {
   done()
 }
 
-
 function build(done) {
   execSync('npm run prebuild')
   execSync('npm run build')
