@@ -1,5 +1,9 @@
 # Change Log
 
+## 5.1.1
+
+- chore: add `npmignore` file ([61bc262](https://github.com/cc-hearts/utils/commit/61bc262))
+
 ## 5.1.0
 
 - chore: update ignore&remove dist/docs ([10c61da](https://github.com/cc-hearts/utils/commit/10c61da))
