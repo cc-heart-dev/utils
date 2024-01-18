@@ -5,11 +5,15 @@
   "license": "MIT",
   "description": "🔧 javascript common tools collection",
   "type": "module",
+  "engines": {
+    "node": ">=16.0.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cc-hearts/utils.git"
   },
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "prebuild": "rimraf dist types",
     "build": "npm run prebuild && rollup -c && tsc -p tsconfig.build.json && npm run doc",
     "test": "npx jest",
@@ -30,7 +34,8 @@
       }
     ],
     "./helper": "./dist/types/helper.d.ts",
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./*": "./*"
   },
   "devDependencies": {
     "@cc-heart/eslint-config": "^0.0.5",
@@ -70,5 +75,8 @@
       "prettier --write"
     ],
     "*.{md}": "prettier --write"
+  },
+  "volta": {
+    "node": "16.18.1"
   }
 }

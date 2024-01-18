@@ -1,0 +1,44 @@
+name: Actions
+
+on:
+  push:
+    branches:
+      - '*'
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install pnpm
+        run: corepack enable
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run unit tests
+        run: pnpm test
+
+      - name: Build utils Docs
+        run: pnpm doc
+
+      - name: Deploy to docs branch
+        uses: JamesIves/github-pages-deploy-action@v4.4.1
+        with:
+          branch: docs
+          folder: docs
+          token: ${{ secrets.GITHUB_TOKEN }}
+          repository-name: cc-hearts/utils
+          target-folder: ./
+          single-commit: true
+          clean: true
