@@ -4,7 +4,6 @@ coverage/**/*
 publish.sh
 .vscode
 package-lock.json
-pnpm-lock.yaml
 yarn.lock
 
 docs/*
