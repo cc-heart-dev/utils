@@ -48,9 +48,9 @@ export const defineDebounceFn: DefineDebounceFn = function (
  * @param {(...args: any) => any} fn - The function to be called once.
  * @returns {(...args: any) => any} - A new function that can only be called once.
  */
-export function defineOnceFn<T>(fn: (...args: any) => T | null) {
+export function defineOnceFn<T>(fn: (...args: any) => T) {
   let __once = false
-  let __cache: T | null = null
+  let __cache: T
   if (!(fn instanceof Function)) {
     throw new Error('first params must be a function')
   }
