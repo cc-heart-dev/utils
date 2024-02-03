@@ -25,7 +25,7 @@ jobs:
           cache: pnpm
 
       - name: Install Deps
-        uses: pnpm i
+        run: pnpm i
 
       - name: Lint
         run: pnpm eslint
@@ -52,7 +52,7 @@ jobs:
           cache: pnpm
 
       - name: Install Deps
-        uses: pnpm i
+        run: pnpm i
 
       - name: Test
         run: pnpm test
