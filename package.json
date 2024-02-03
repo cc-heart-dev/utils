@@ -4,6 +4,7 @@
   "author": "Carl Chen",
   "license": "MIT",
   "description": "🔧 javascript common tools collection",
+  "packageManager": "pnpm@8.14.1",
   "type": "module",
   "engines": {
     "node": ">=16.0.0"
