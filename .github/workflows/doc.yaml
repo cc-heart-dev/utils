@@ -1,4 +1,4 @@
-name: Actions
+name: Doc
 
 on:
   push:
@@ -29,9 +29,6 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
-
-      - name: Run unit tests
-        run: pnpm test
 
       - name: Build utils Docs
         run: pnpm doc
