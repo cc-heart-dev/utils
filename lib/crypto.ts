@@ -9,7 +9,7 @@ export function randomUUID() {
     typeof performance !== 'undefined' &&
     typeof performance.now === 'function'
   ) {
-    d += performance.now() // 增加性能数据
+    d += performance.now()
   }
   const uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(
     /[xy]/g,

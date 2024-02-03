@@ -10,7 +10,6 @@ export default {
       preserveModules: true,
       dir: 'dist/cjs',
       format: 'cjs',
-      // 重新命名
       entryFileNames: '[name].cjs',
     },
     {
