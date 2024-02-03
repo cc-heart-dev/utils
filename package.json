@@ -1,7 +1,7 @@
 {
   "name": "@cc-heart/utils",
-  "version": "5.1.1",
-  "author": "cc heart",
+  "version": "5.1.2",
+  "author": "Carl Chen",
   "license": "MIT",
   "description": "🔧 javascript common tools collection",
   "type": "module",
