@@ -8,6 +8,9 @@ export type getArrayChildItem<T extends Array<any>> = T extends Array<infer r>
   ? r
   : never
 
+
+export type getPromiseType<T> = T extends Promise<infer R> ? R : T
+
 export type fn = (...args: any) => any
 
 export * from './url'
