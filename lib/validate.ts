@@ -116,6 +116,8 @@ export function isPromise(val: unknown): val is Promise<unknown> {
 }
 
 /**
+ * @deprecated v6.0.0 is deprecated
+ *
  * Checks if two arrays are equal.
  *
  * @param {unknown[]} firstArr - The first array to compare.

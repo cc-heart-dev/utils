@@ -1,4 +1,5 @@
 /**
+ * @deprecated v6.0.0 is deprecated
  * Generates a random UUID.
  *
  * @return {string} The generated UUID.
