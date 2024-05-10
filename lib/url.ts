@@ -1,5 +1,38 @@
 import type { QueryStringToObject } from '../typings/url'
-import { hasOwn } from './validate'
+import { hasOwn, isObject } from './validate'
+
+export function parseKey(obj: Record<PropertyKey, any>, key: string, value: any) {
+  const isArrayKey = key.includes('[') && key.includes(']')
+  if (isArrayKey) {
+    const keys = key.split(/[\[\]]/).filter(Boolean)
+    let currentObj = obj
+    for (let i = 0; i < keys.length; i++) {
+      const currentKey = keys[i]
+      if (i === keys.length - 1) {
+        if (!currentObj[currentKey]) {
+          currentObj[currentKey] = []
+        }
+        currentObj[currentKey].push(value)
+      } else {
+        if (!currentObj[currentKey]) {
+          currentObj[currentKey] = keys[i + 1].match(/^\d+$/) ? [] : {}
+        }
+        currentObj = currentObj[currentKey]
+      }
+    }
+  } else {
+    let nestedObj = obj
+    const keyParts = key.split('.')
+    for (let i = 0; i < keyParts.length - 1; i++) {
+      const currentKey = keyParts[i]
+      if (!nestedObj[currentKey]) {
+        nestedObj[currentKey] = {}
+      }
+      nestedObj = nestedObj[currentKey]
+    }
+    nestedObj[keyParts[keyParts.length - 1]] = value
+  }
+}
 
 /**
  * Converts a query string to an object.
@@ -20,8 +53,9 @@ export function queryStringToObject<
   const result = {} as U
   if (query) {
     query.split('&').forEach((item) => {
-      const [key, value] = item.split('=')
-      Reflect.set(result, decodeURIComponent(key), decodeURIComponent(value))
+      const [rawKey, value] = item.split('=')
+      const key = decodeURIComponent(rawKey)
+      parseKey(result, key, decodeURIComponent(value))
     })
   }
   return result
@@ -39,7 +73,11 @@ export function objectToQueryString<T extends Record<PropertyKey, any>>(
   const res = []
   for (const key in data) {
     if (hasOwn(data, key)) {
-      res.push(`${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+      if (Array.isArray(data[key])) {
+        res.push(arrayToQueryString(data[key], key))
+      } else {
+        res.push(`${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+      }
     }
   }
 
@@ -82,4 +120,44 @@ export function basename(path: string, suffix?: string) {
     return str.replace(new RegExp(suffix + '$'), '')
   }
   return str
+}
+
+/**
+ * Convert a multi-dimensional array to a query string.
+ * @param array The multi-dimensional array to convert.
+ * @param field The field name to use in the query string.
+ * @returns The generated query string.
+ */
+export function arrayToQueryString(array: Array<unknown>, field: string) {
+  let queryString = '';
+
+  function buildQueryString(arr: Array<unknown>, prefix: string) {
+    arr.forEach((element, index) => {
+      if (Array.isArray(element)) {
+        buildQueryString(element, `${prefix}[${index}]`);
+      } else {
+        if (isObject(element)) {
+          let query = ''
+
+          for (const key in element) {
+            if (hasOwn(element, key)) {
+              query += `${prefix}[${index}].${key}=${encodeURIComponent(String(Reflect.get(element, key)))}&`
+            }
+          }
+
+          queryString += query.slice(0, -1)
+        } else {
+          queryString += `${prefix}[${index}]=${encodeURIComponent(String(element))}&`;
+
+        }
+      }
+    });
+  }
+
+  buildQueryString(array, field);
+
+  // Remove the trailing '&' if present
+  queryString = queryString.slice(0, -1);
+
+  return queryString;
 }
