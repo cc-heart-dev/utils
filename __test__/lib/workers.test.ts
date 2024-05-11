@@ -5,6 +5,8 @@ import {
   compose,
 } from '../../lib/workers'
 
+const warningFn = console.warn = jest.fn()
+
 describe('executeConcurrency module', () => {
   it('should return a promise that resolves with an array of results', async () => {
     const tasks = [
@@ -93,9 +95,11 @@ describe('executeConcurrency module', () => {
       () => Promise.resolve(2),
       () => Promise.resolve(3),
     ]
+
     const maxConcurrency = undefined
     const res = await executeConcurrency(tasks, maxConcurrency as any)
     expect(res).toBeNull()
+    expect(warningFn).toHaveBeenCalledTimes(1)
   })
 })
 

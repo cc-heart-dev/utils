@@ -12,15 +12,15 @@ describe('convertQueryString', () => {
   })
 
   test('should convert a query string to an object', () => {
-    expect(queryStringToObject('foo=1&bar=2&baz=3')).toEqual({ foo: '1', bar: '2', baz: '3' })
-    expect(queryStringToObject('foo=&bar=2&baz=3')).toEqual({ foo: '', bar: '2', baz: '3' })
-    expect(queryStringToObject('foo[0]=1&foo[1]=2&baz=3')).toEqual({ foo: ['1', '2'], baz: '3' })
-    expect(queryStringToObject('foo[0]=1&foo[1][0]=2&foo[1][1]=3&baz=4')).toEqual({ foo: ['1', ['2', '3']], baz: '4' })
-    expect(queryStringToObject('foo[0].a=1&foo[1].b=2&baz=3')).toEqual({ foo: [{ a: '1' }, { b: '2' }], baz: '3' })
+    expect(queryStringToObject('?foo=1&bar=2&baz=3')).toEqual({ foo: '1', bar: '2', baz: '3' })
+    expect(queryStringToObject('?foo=&bar=2&baz=3')).toEqual({ foo: '', bar: '2', baz: '3' })
+    expect(queryStringToObject('?foo[0]=1&foo[1]=2&baz=3')).toEqual({ foo: ['1', '2'], baz: '3' })
+    expect(queryStringToObject('?foo[0]=1&foo[1][0]=2&foo[1][1]=3&baz=4')).toEqual({ foo: ['1', ['2', '3']], baz: '4' })
+    expect(queryStringToObject('?foo[0].a=1&foo[1].b=2&baz=3')).toEqual({ foo: [{ a: '1' }, { b: '2' }], baz: '3' })
   })
 
   test('should correctly parse keys with multiple levels of arrays and objects', () => {
-    const result = queryStringToObject('foo[0][0].a=1&foo[0][1].b=2&foo[1].c[0]=3&foo[1].c[1]=4&foo[2]=5')
+    const result = queryStringToObject('?foo[0][0].a=1&foo[0][1].b=2&foo[1].c[0]=3&foo[1].c[1]=4&foo[2]=5')
     expect(result).toEqual({
       foo: [
         [{ a: '1' }, { b: '2' }],
@@ -31,7 +31,7 @@ describe('convertQueryString', () => {
   })
 
   test('should handle deep nesting of objects', () => {
-    const result = queryStringToObject('foo.bar.baz.qux=1')
+    const result = queryStringToObject('?foo.bar.baz.qux=1')
     expect(result).toEqual({
       foo: {
         bar: {
@@ -44,7 +44,7 @@ describe('convertQueryString', () => {
   })
 
   test('should handle mixed arrays and objects', () => {
-    const result = queryStringToObject('foo[0].bar=1&foo[1].baz[0]=2&foo[1].baz[1].qux=3')
+    const result = queryStringToObject('?foo[0].bar=1&foo[1].baz[0]=2&foo[1].baz[1].qux=3')
     expect(result).toEqual({
       foo: [
         { bar: '1' },
@@ -143,11 +143,11 @@ describe('objectToQueryString', () => {
   })
 
   test('should return a query string for a simple array', () => {
-    expect(objectToQueryString({ foo: ['bar', ['baz', 'pizza']] })).toEqual('foo[0]=bar&foo[1][0]=baz&foo[1][1]=pizza')
+    expect(objectToQueryString({ foo: ['bar', ['baz', 'pizza']] })).toEqual('foo%5B0%5D=bar&foo%5B1%5D%5B0%5D=baz&foo%5B1%5D%5B1%5D=pizza')
   })
 
   test('should return a query string for a simple array object', () => {
-    expect(objectToQueryString({ foo: ['bar', ['baz', { a: 'b' }]] })).toEqual('foo[0]=bar&foo[1][0]=baz&foo[1][1].a=b')
+    expect(objectToQueryString({ foo: ['bar', ['baz', { a: 'b' }]] })).toEqual('foo%5B0%5D=bar&foo%5B1%5D%5B0%5D=baz&foo%5B1%5D%5B1%5D.a=b')
   })
 
   test('should return a query string for a simple object', () => {
@@ -212,13 +212,13 @@ describe('parseKey', () => {
     const obj: Record<string, any> = {}
     parseKey(obj, 'foo', '1')
     parseKey(obj, 'foo', '2')
-    expect(obj).toEqual({ foo: ['1', '2'] })
+    expect(obj).toEqual({ foo: '2' })
   })
 
   test('should correctly parse empty keys', () => {
     const obj: Record<string, any> = {}
     parseKey(obj, '', '1')
-    expect(obj).toEqual({})
+    expect(obj).toEqual({ '': '1' })
   })
 })
 

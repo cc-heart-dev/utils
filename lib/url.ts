@@ -7,12 +7,18 @@ export function parseKey(obj: Record<PropertyKey, any>, key: string, value: any)
     const keys = key.split(/[\[\]]/).filter(Boolean)
     let currentObj = obj
     for (let i = 0; i < keys.length; i++) {
-      const currentKey = keys[i]
+      let currentKey = keys[i]
+      if (currentKey.startsWith('.'))
+        currentKey = currentKey.split('.')[1]
+
       if (i === keys.length - 1) {
-        if (!currentObj[currentKey]) {
-          currentObj[currentKey] = []
+        if (Array.isArray(currentObj)) {
+          currentObj.push(value)
         }
-        currentObj[currentKey].push(value)
+        else {
+
+          currentObj[currentKey] = value
+        }
       } else {
         if (!currentObj[currentKey]) {
           currentObj[currentKey] = keys[i + 1].match(/^\d+$/) ? [] : {}
@@ -24,7 +30,8 @@ export function parseKey(obj: Record<PropertyKey, any>, key: string, value: any)
     let nestedObj = obj
     const keyParts = key.split('.')
     for (let i = 0; i < keyParts.length - 1; i++) {
-      const currentKey = keyParts[i]
+      let currentKey = keyParts[i]
+
       if (!nestedObj[currentKey]) {
         nestedObj[currentKey] = {}
       }
@@ -70,7 +77,7 @@ export function queryStringToObject<
 export function objectToQueryString<T extends Record<PropertyKey, any>>(
   data: T,
 ): string {
-  const res = []
+  const res: Array<string> = []
   for (const key in data) {
     if (hasOwn(data, key)) {
       if (Array.isArray(data[key])) {
@@ -134,18 +141,16 @@ export function arrayToQueryString(array: Array<unknown>, field: string) {
   function buildQueryString(arr: Array<unknown>, prefix: string) {
     arr.forEach((element, index) => {
       if (Array.isArray(element)) {
-        buildQueryString(element, `${prefix}[${index}]`);
+        buildQueryString(element, `${prefix}${encodeURIComponent(`[${index}]`)}`);
       } else {
         if (isObject(element)) {
-          let query = ''
 
           for (const key in element) {
             if (hasOwn(element, key)) {
-              query += `${prefix}${encodeURIComponent(`[${index}]`)}.${encodeURIComponent(key)}=${encodeURIComponent(String(Reflect.get(element, key)))}&`
+              queryString += `${prefix}${encodeURIComponent(`[${index}]`)}.${encodeURIComponent(key)}=${encodeURIComponent(String(Reflect.get(element, key)))}&`
             }
           }
 
-          queryString += query.slice(0, -1)
         } else {
           queryString += `${prefix}${encodeURIComponent(`[${index}]`)}=${encodeURIComponent(String(element))}&`;
         }
