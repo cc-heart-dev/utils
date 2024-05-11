@@ -4,14 +4,14 @@
  */
 export type LiteralUnionTips<T extends U, U> = T | (U & Omit<U, PropertyKey>)
 
-export type getArrayChildItem<T extends Array<any>> = T extends Array<infer r>
+export type GetArrayChildItem<T extends Array<any>> = T extends Array<infer r>
   ? r
   : never
 
 
-export type getPromiseType<T> = T extends Promise<infer R> ? R : T
+export type GetPromiseType<T> = T extends Promise<infer R> ? R : T
 
-export type fn = (...args: any) => any
+export type Fn = (...args: any) => any
 
 export * from './url'
 export * from './valid'

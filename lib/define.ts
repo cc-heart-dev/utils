@@ -1,4 +1,4 @@
-import { type fn } from '../typings/helper'
+import { type Fn } from '../typings/helper'
 
 type CacheResultFunc = {
   _result?: any
@@ -21,7 +21,7 @@ interface DefineDebounceFn {
  * @returns {CacheResultFunc} - The debounce function.
  */
 export const defineDebounceFn: DefineDebounceFn = function (
-  fn: fn,
+  fn: Fn,
   delay = 500,
   immediate = false,
 ) {
@@ -69,7 +69,7 @@ export function defineOnceFn<T>(fn: (...args: any) => T) {
  * @param {number} delay - The delay in milliseconds to wait before the throttled function is called. Default is 500ms.
  * @returns {CacheResultFunc} - The throttled function.
  */
-export function defineThrottleFn(fn: fn, delay = 500) {
+export function defineThrottleFn(fn: Fn, delay = 500) {
   let startTimer: number | null = null
   let timer: any = null
   delay = Math.max(delay, 0)

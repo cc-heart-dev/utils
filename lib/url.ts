@@ -141,14 +141,13 @@ export function arrayToQueryString(array: Array<unknown>, field: string) {
 
           for (const key in element) {
             if (hasOwn(element, key)) {
-              query += `${prefix}[${index}].${key}=${encodeURIComponent(String(Reflect.get(element, key)))}&`
+              query += `${prefix}${encodeURIComponent(`[${index}]`)}.${encodeURIComponent(key)}=${encodeURIComponent(String(Reflect.get(element, key)))}&`
             }
           }
 
           queryString += query.slice(0, -1)
         } else {
-          queryString += `${prefix}[${index}]=${encodeURIComponent(String(element))}&`;
-
+          queryString += `${prefix}${encodeURIComponent(`[${index}]`)}=${encodeURIComponent(String(element))}&`;
         }
       }
     });
