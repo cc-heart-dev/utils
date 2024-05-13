@@ -1,1 +1,9 @@
 !dist/
+publish.sh
+docs
+coverage
+.vscode
+__test
+.github
+.husky
+pnpm-lock.yaml
