@@ -5,7 +5,7 @@ import {
   compose,
 } from '../../lib/workers'
 
-const warningFn = console.warn = jest.fn()
+const warningFn = (console.warn = jest.fn())
 
 describe('executeConcurrency module', () => {
   it('should return a promise that resolves with an array of results', async () => {

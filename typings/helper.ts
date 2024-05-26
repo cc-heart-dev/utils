@@ -4,10 +4,8 @@
  */
 export type LiteralUnionTips<T extends U, U> = T | (U & Omit<U, PropertyKey>)
 
-export type GetArrayChildItem<T extends Array<any>> = T extends Array<infer r>
-  ? r
-  : never
-
+export type GetArrayChildItem<T extends Array<any>> =
+  T extends Array<infer r> ? r : never
 
 export type GetPromiseType<T> = T extends Promise<infer R> ? R : T
 

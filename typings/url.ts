@@ -20,12 +20,12 @@ export type MergeQueryStringObject<
           ? [...T[k], ...U[k]]
           : [...T[k], U[k]]
         : U[k] extends unknown[]
-        ? [T[k], ...U[k]]
-        : [T[k], U[k]]
+          ? [T[k], ...U[k]]
+          : [T[k], U[k]]
       : T[k]
     : k extends keyof U
-    ? U[k]
-    : never
+      ? U[k]
+      : never
 }
 
 export type QueryStringToObject<T extends string> =

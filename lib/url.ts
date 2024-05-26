@@ -1,22 +1,23 @@
 import type { QueryStringToObject } from '../typings/url'
 import { hasOwn, isObject } from './validate'
 
-export function parseKey(obj: Record<PropertyKey, any>, key: string, value: any) {
+export function parseKey(
+  obj: Record<PropertyKey, any>,
+  key: string,
+  value: any,
+) {
   const isArrayKey = key.includes('[') && key.includes(']')
   if (isArrayKey) {
     const keys = key.split(/[\[\]]/).filter(Boolean)
     let currentObj = obj
     for (let i = 0; i < keys.length; i++) {
       let currentKey = keys[i]
-      if (currentKey.startsWith('.'))
-        currentKey = currentKey.split('.')[1]
+      if (currentKey.startsWith('.')) currentKey = currentKey.split('.')[1]
 
       if (i === keys.length - 1) {
         if (Array.isArray(currentObj)) {
           currentObj.push(value)
-        }
-        else {
-
+        } else {
           currentObj[currentKey] = value
         }
       } else {
@@ -56,10 +57,9 @@ export function queryStringToObject<
   T extends string,
   U extends Record<PropertyKey, any> = QueryStringToObject<T>,
 >(url: T): U {
-  const query = url.split('?')[1]
   const result = {} as U
-  if (query) {
-    query.split('&').forEach((item) => {
+  if (url) {
+    url.split('&').forEach((item) => {
       const [rawKey, value] = item.split('=')
       const key = decodeURIComponent(rawKey)
       parseKey(result, key, decodeURIComponent(value))
@@ -136,32 +136,33 @@ export function basename(path: string, suffix?: string) {
  * @returns The generated query string.
  */
 export function arrayToQueryString(array: Array<unknown>, field: string) {
-  let queryString = '';
+  let queryString = ''
 
   function buildQueryString(arr: Array<unknown>, prefix: string) {
     arr.forEach((element, index) => {
       if (Array.isArray(element)) {
-        buildQueryString(element, `${prefix}${encodeURIComponent(`[${index}]`)}`);
+        buildQueryString(
+          element,
+          `${prefix}${encodeURIComponent(`[${index}]`)}`,
+        )
       } else {
         if (isObject(element)) {
-
           for (const key in element) {
             if (hasOwn(element, key)) {
               queryString += `${prefix}${encodeURIComponent(`[${index}]`)}.${encodeURIComponent(key)}=${encodeURIComponent(String(Reflect.get(element, key)))}&`
             }
           }
-
         } else {
-          queryString += `${prefix}${encodeURIComponent(`[${index}]`)}=${encodeURIComponent(String(element))}&`;
+          queryString += `${prefix}${encodeURIComponent(`[${index}]`)}=${encodeURIComponent(String(element))}&`
         }
       }
-    });
+    })
   }
 
-  buildQueryString(array, field);
+  buildQueryString(array, field)
 
   // Remove the trailing '&' if present
-  queryString = queryString.slice(0, -1);
+  queryString = queryString.slice(0, -1)
 
-  return queryString;
+  return queryString
 }
