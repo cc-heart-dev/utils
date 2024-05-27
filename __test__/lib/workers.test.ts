@@ -2,7 +2,7 @@ import {
   executeConcurrency,
   executeQueue,
   pipe,
-  compose,
+  compose
 } from '../../lib/workers'
 
 const warningFn = (console.warn = jest.fn())
@@ -12,7 +12,7 @@ describe('executeConcurrency module', () => {
     const tasks = [
       () => Promise.resolve(1),
       () => Promise.resolve(2),
-      () => Promise.resolve(3),
+      () => Promise.resolve(3)
     ]
     const maxConcurrency = 3
 
@@ -25,7 +25,7 @@ describe('executeConcurrency module', () => {
       () => Promise.resolve(1),
       () => Promise.resolve(2),
       () => Promise.resolve(3),
-      () => Promise.resolve(4),
+      () => Promise.resolve(4)
     ]
     const maxConcurrency = 3
     const res = await executeConcurrency(tasks, maxConcurrency)
@@ -43,8 +43,8 @@ describe('executeConcurrency module', () => {
           setTimeout(() => {
             status[0] = true
             resolve(1)
-          }, 1000),
-        ),
+          }, 1000)
+        )
     )
     const fn1 = jest.fn(
       () =>
@@ -52,8 +52,8 @@ describe('executeConcurrency module', () => {
           setTimeout(() => {
             status[1] = true
             resolve(2)
-          }, 1500),
-        ),
+          }, 1500)
+        )
     )
     const fn2 = jest.fn(
       () =>
@@ -61,8 +61,8 @@ describe('executeConcurrency module', () => {
           setTimeout(() => {
             status[2] = true
             resolve(3)
-          }, 2000),
-        ),
+          }, 2000)
+        )
     )
     const fn3 = jest.fn(
       () =>
@@ -70,8 +70,8 @@ describe('executeConcurrency module', () => {
           setTimeout(() => {
             status[3] = true
             resolve(4)
-          }, 2500),
-        ),
+          }, 2500)
+        )
     )
     const tasks = [fn, fn1, fn2, fn3]
     const maxConcurrency = 3
@@ -84,7 +84,7 @@ describe('executeConcurrency module', () => {
     result.then(async (res) => {
       expect(status).toEqual([true, true, true, false])
       expect(fn3).toBeCalledTimes(1)
-      await _PromiseAll(res!)
+      if (res) await _PromiseAll(res)
       expect(status).toEqual([true, true, true, true])
     })
   })
@@ -93,7 +93,7 @@ describe('executeConcurrency module', () => {
     const tasks = [
       () => Promise.resolve(1),
       () => Promise.resolve(2),
-      () => Promise.resolve(3),
+      () => Promise.resolve(3)
     ]
 
     const maxConcurrency = undefined
@@ -108,7 +108,7 @@ describe('invoke task queue', () => {
     const taskArray = [
       jest.fn(() => Promise.resolve('Task 1')),
       jest.fn(() => Promise.resolve('Task 2')),
-      jest.fn(() => Promise.resolve('Task 3')),
+      jest.fn(() => Promise.resolve('Task 3'))
     ]
 
     return executeQueue(taskArray).then(() => {
@@ -116,10 +116,10 @@ describe('invoke task queue', () => {
       expect(taskArray[1]).toHaveBeenCalled()
       expect(taskArray[2]).toHaveBeenCalled()
       expect(taskArray[0].mock.invocationCallOrder[0]).toBeLessThan(
-        taskArray[1].mock.invocationCallOrder[0],
+        taskArray[1].mock.invocationCallOrder[0]
       )
       expect(taskArray[1].mock.invocationCallOrder[0]).toBeLessThan(
-        taskArray[2].mock.invocationCallOrder[0],
+        taskArray[2].mock.invocationCallOrder[0]
       )
     })
   })
@@ -136,7 +136,7 @@ describe('invoke task queue', () => {
     const taskArray = [
       jest.fn(() => Promise.resolve('Task 1')),
       jest.fn(() => Promise.resolve('Task 2')),
-      jest.fn(() => Promise.resolve('Task 3')),
+      jest.fn(() => Promise.resolve('Task 3'))
     ]
 
     return executeQueue(taskArray).then(() => {

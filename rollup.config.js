@@ -10,17 +10,17 @@ export default {
       preserveModules: true,
       dir: 'dist/cjs',
       format: 'cjs',
-      entryFileNames: '[name].cjs',
+      entryFileNames: '[name].cjs'
     },
     {
       preserveModules: true,
       dir: 'dist/esm',
-      format: 'esm',
+      format: 'esm'
     },
     {
       format: 'es',
-      file: 'dist/browser/index.js',
-    },
+      file: 'dist/browser/index.js'
+    }
   ],
-  plugins: [resolve(), commonjs(), typescript(tsConfig)],
+  plugins: [resolve(), commonjs(), typescript(tsConfig)]
 }

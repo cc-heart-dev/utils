@@ -127,7 +127,7 @@ export function isPromise(val: unknown): val is Promise<unknown> {
 export function isArrayEquals(
   firstArr: unknown[],
   secondArr: unknown[],
-  compareFunc?: (a: any, b: any) => boolean,
+  compareFunc?: (a: any, b: any) => boolean
 ): boolean {
   if (firstArr.length !== secondArr.length) return false
   if (firstArr === secondArr) return true

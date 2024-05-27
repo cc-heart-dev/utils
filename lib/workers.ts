@@ -4,7 +4,7 @@ import { isUndef } from './validate'
 
 export async function executeConcurrency(
   tasks: Array<Fn>,
-  maxConcurrency: number,
+  maxConcurrency: number
 ) {
   if (isUndef(maxConcurrency)) {
     console.warn('maxConcurrency is undefined')
@@ -35,7 +35,7 @@ export async function executeConcurrency(
  * @return {Promise<void>} - A promise that resolves when all tasks are completed.
  */
 export function executeQueue(
-  taskArray: Array<(...args: any) => any>,
+  taskArray: Array<(...args: any) => any>
 ): Promise<void> {
   const taskQueue = taskArray.slice()
   let index = 0

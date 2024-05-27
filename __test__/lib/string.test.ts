@@ -2,7 +2,7 @@ import {
   unCapitalize,
   capitalize,
   underlineToHump,
-  mulSplit,
+  mulSplit
 } from '../../lib/string'
 
 describe('unCapitalize', () => {

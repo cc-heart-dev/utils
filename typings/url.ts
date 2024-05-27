@@ -11,7 +11,7 @@ export type ParseQueryString<T extends string> =
 
 export type MergeQueryStringObject<
   T extends Record<string, any>,
-  U extends Record<string, any>,
+  U extends Record<string, any>
 > = {
   [k in keyof T | keyof U]: k extends keyof T
     ? k extends keyof U

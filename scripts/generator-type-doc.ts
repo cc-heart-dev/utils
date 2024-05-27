@@ -2,7 +2,7 @@ import { join } from 'path'
 import Typedoc from 'typedoc'
 ;(async () => {
   const app = await Typedoc.Application.bootstrapWithPlugins({
-    entryPoints: [`index.ts`],
+    entryPoints: [`index.ts`]
   })
 
   const project = await app.convert()

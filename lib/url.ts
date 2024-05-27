@@ -4,11 +4,11 @@ import { hasOwn, isObject } from './validate'
 export function parseKey(
   obj: Record<PropertyKey, any>,
   key: string,
-  value: any,
+  value: any
 ) {
   const isArrayKey = key.includes('[') && key.includes(']')
   if (isArrayKey) {
-    const keys = key.split(/[\[\]]/).filter(Boolean)
+    const keys = key.split(/[[\]]/).filter(Boolean)
     let currentObj = obj
     for (let i = 0; i < keys.length; i++) {
       let currentKey = keys[i]
@@ -31,7 +31,7 @@ export function parseKey(
     let nestedObj = obj
     const keyParts = key.split('.')
     for (let i = 0; i < keyParts.length - 1; i++) {
-      let currentKey = keyParts[i]
+      const currentKey = keyParts[i]
 
       if (!nestedObj[currentKey]) {
         nestedObj[currentKey] = {}
@@ -55,7 +55,7 @@ export function parseKey(
  */
 export function queryStringToObject<
   T extends string,
-  U extends Record<PropertyKey, any> = QueryStringToObject<T>,
+  U extends Record<PropertyKey, any> = QueryStringToObject<T>
 >(url: T): U {
   const result = {} as U
   if (url) {
@@ -75,7 +75,7 @@ export function queryStringToObject<
  * @returns {string} The query string representation of `data`.
  */
 export function objectToQueryString<T extends Record<PropertyKey, any>>(
-  data: T,
+  data: T
 ): string {
   const res: Array<string> = []
   for (const key in data) {
@@ -143,7 +143,7 @@ export function arrayToQueryString(array: Array<unknown>, field: string) {
       if (Array.isArray(element)) {
         buildQueryString(
           element,
-          `${prefix}${encodeURIComponent(`[${index}]`)}`,
+          `${prefix}${encodeURIComponent(`[${index}]`)}`
         )
       } else {
         if (isObject(element)) {

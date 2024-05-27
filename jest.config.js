@@ -6,7 +6,7 @@ export default {
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   testMatch: ['<rootDir>/__test__/**/*.{spec,test}.{js,jsx,ts,tsx}'],
   transform: {
-    '^.+\\.(js|jsx|ts|tsx)$': ['@swc/jest'],
+    '^.+\\.(js|jsx|ts|tsx)$': ['@swc/jest']
   },
-  fakeTimers: { enableGlobally: true },
+  fakeTimers: { enableGlobally: true }
 }

@@ -1,7 +1,7 @@
 import {
   defineDebounceFn,
   defineOnceFn,
-  defineThrottleFn,
+  defineThrottleFn
 } from '../../lib/define'
 
 describe('defineDebounceFn', () => {

@@ -9,7 +9,7 @@ interface DefineDebounceFn {
   (
     fn: CacheResultFunc,
     delay?: number,
-    immediate?: boolean,
+    immediate?: boolean
   ): ReturnType<CacheResultFunc>
 }
 
@@ -23,7 +23,7 @@ interface DefineDebounceFn {
 export const defineDebounceFn: DefineDebounceFn = function (
   fn: Fn,
   delay = 500,
-  immediate = false,
+  immediate = false
 ) {
   let timer: any | null = null
   const debounced: CacheResultFunc = function (this: any, ...args: any) {

@@ -11,7 +11,7 @@ import {
   isFalsy,
   isNumber,
   isEffectiveNumber,
-  isPromise,
+  isPromise
 } from '../../lib/validate'
 
 describe('isArrayEquals', () => {
@@ -32,8 +32,8 @@ describe('isArrayEquals', () => {
       isArrayEquals(
         [{ id: 1 }, { id: 2 }],
         [{ id: 1 }, { id: 2 }],
-        (a, b) => a.id === b.id,
-      ),
+        (a, b) => a.id === b.id
+      )
     ).toBe(true)
   })
 })
@@ -62,12 +62,12 @@ describe('isFn', () => {
     expect(
       isFn(function () {
         /** */
-      }),
+      })
     ).toBe(true)
     expect(
       isFn(() => {
         /** */
-      }),
+      })
     ).toBe(true)
   })
 
@@ -140,8 +140,8 @@ describe('isPrimitive', () => {
       isPrimitive(
         new Promise(() => {
           /** */
-        }),
-      ),
+        })
+      )
     ).toBe(false)
   })
 })
@@ -194,23 +194,23 @@ describe('isPromise', () => {
       isPromise(
         new Promise(() => {
           /** */
-        }),
-      ),
+        })
+      )
     ).toBe(true)
     expect(isPromise(Promise.resolve(1))).toBe(true)
     expect(
       isPromise(
         Promise.reject(1).catch(() => {
           /** */
-        }),
-      ),
+        })
+      )
     ).toBe(true)
     expect(
       isPromise({
         then: () => {
           /** */
-        },
-      }),
+        }
+      })
     ).toBe(true)
   })
 

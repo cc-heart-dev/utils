@@ -3,7 +3,7 @@ import {
   queryStringToObject,
   objectToQueryString,
   basename,
-  parseKey,
+  parseKey
 } from '../../lib/url'
 
 describe('convertQueryString', () => {
@@ -95,21 +95,21 @@ describe('convertParamsRouterToRegExp', () => {
   test('should return //path/.*?/index/ string if path is /path/:id/index', () => {
     expect(convertParamsRouterToRegExp('/path/:id/index')).toEqual([
       /\/path\/.*?\/index/,
-      ['id'],
+      ['id']
     ])
   })
 
   test('should return /path/.*?/.*? string if path is /path/:id/:uid', () => {
     expect(convertParamsRouterToRegExp('/path/:id/:uid')).toEqual([
       /\/path\/.*?\/.*?/,
-      ['id', 'uid'],
+      ['id', 'uid']
     ])
   })
 
   test('should return /path/.*?/.*?/index/ string if path is /path/:id/:uid/index', () => {
     expect(convertParamsRouterToRegExp('/path/:id/:uid/index')).toEqual([
       /\/path\/.*?\/.*?\/index/,
-      ['id', 'uid'],
+      ['id', 'uid']
     ])
   })
 
