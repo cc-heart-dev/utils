@@ -6,8 +6,8 @@ settings:
 
 devDependencies:
   '@cc-heart/eslint-config':
-    specifier: ^0.0.5
-    version: 0.0.5(eslint@8.56.0)(typescript@4.9.5)
+    specifier: ^0.0.11
+    version: 0.0.11(eslint@8.56.0)(typescript@4.9.5)
   '@rollup/plugin-commonjs':
     specifier: ^24.1.0
     version: 24.1.0(rollup@3.29.4)
@@ -434,14 +434,16 @@ packages:
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
     dev: true
 
-  /@cc-heart/eslint-config@0.0.5(eslint@8.56.0)(typescript@4.9.5):
-    resolution: {integrity: sha512-vjlfbyLAhiO9MNgSnIp+mXlcvLxYTu2Zz70KZPCgHdNhoFyYnI4ixc/FwzPdq6Fs6DMVVb4bR29iSUsSiF6D2Q==}
+  /@cc-heart/eslint-config@0.0.11(eslint@8.56.0)(typescript@4.9.5):
+    resolution: {integrity: sha512-5vMBbU1zSXhFUT5xAOpuQvkV1ZB3eZ12U8+7LKkZJ2lqKsTT5C9Y0lyI9+yoGusYlGue3Cg+omEvzB8tG7LYmg==}
     peerDependencies:
       eslint: '>=7.4.0'
     dependencies:
       '@typescript-eslint/eslint-plugin': 5.62.0(@typescript-eslint/parser@5.62.0)(eslint@8.56.0)(typescript@4.9.5)
       '@typescript-eslint/parser': 5.62.0(eslint@8.56.0)(typescript@4.9.5)
       eslint: 8.56.0
+      eslint-plugin-react-hooks: 4.6.2(eslint@8.56.0)
+      eslint-plugin-react-refresh: 0.4.7(eslint@8.56.0)
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -2891,6 +2893,23 @@ packages:
   /escape-string-regexp@4.0.0:
     resolution: {integrity: sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==}
     engines: {node: '>=10'}
+    dev: true
+
+  /eslint-plugin-react-hooks@4.6.2(eslint@8.56.0):
+    resolution: {integrity: sha512-QzliNJq4GinDBcD8gPB5v0wh6g8q3SUi6EFF0x8N/BL9PoVs0atuGc47ozMRyOWAKdwaZ5OnbOEa3WR+dSGKuQ==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0
+    dependencies:
+      eslint: 8.56.0
+    dev: true
+
+  /eslint-plugin-react-refresh@0.4.7(eslint@8.56.0):
+    resolution: {integrity: sha512-yrj+KInFmwuQS2UQcg1SF83ha1tuHC1jMQbRNyuWtlEzzKRDgAl7L4Yp4NlDUZTZNlWvHEzOtJhMi40R7JxcSw==}
+    peerDependencies:
+      eslint: '>=7'
+    dependencies:
+      eslint: 8.56.0
     dev: true
 
   /eslint-scope@5.1.1:
