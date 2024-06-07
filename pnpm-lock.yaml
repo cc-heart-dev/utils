@@ -63,8 +63,8 @@ devDependencies:
     specifier: ^3.26.3
     version: 3.29.4
   rollup-plugin-typescript2:
-    specifier: ^0.35.0
-    version: 0.35.0(rollup@3.29.4)(typescript@4.9.5)
+    specifier: ^0.36.0
+    version: 0.36.0(rollup@3.29.4)(typescript@4.9.5)
   standard-version:
     specifier: ^9.5.0
     version: 9.5.0
@@ -6146,8 +6146,8 @@ packages:
       glob: 9.3.5
     dev: true
 
-  /rollup-plugin-typescript2@0.35.0(rollup@3.29.4)(typescript@4.9.5):
-    resolution: {integrity: sha512-szcIO9hPUx3PhQl91u4pfNAH2EKbtrXaES+m163xQVE5O1CC0ea6YZV/5woiDDW3CR9jF2CszPrKN+AFiND0bg==}
+  /rollup-plugin-typescript2@0.36.0(rollup@3.29.4)(typescript@4.9.5):
+    resolution: {integrity: sha512-NB2CSQDxSe9+Oe2ahZbf+B4bh7pHwjV5L+RSYpCu7Q5ROuN94F9b6ioWwKfz3ueL3KTtmX4o2MUH2cgHDIEUsw==}
     peerDependencies:
       rollup: '>=1.26.3'
       typescript: '>=2.4.0'
