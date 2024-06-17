@@ -26,9 +26,7 @@
     "noEmit": true
   },
   "exclude": [
-    "__test__/**/*",
     "node_modules/**/*",
-    "rollup.config.js",
     "types/**/*"
   ]
 }

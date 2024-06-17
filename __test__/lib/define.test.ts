@@ -52,8 +52,7 @@ describe('defineOnceFn module', () => {
   })
 
   it('throw error when params is not a function', () => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
+    // @ts-expect-error: defineOnceFn params is empty string throw error
     const fn = () => defineOnceFn('')
     expect(fn).toThrowError('first params must be a function')
   })

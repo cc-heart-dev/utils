@@ -145,8 +145,7 @@ export function arrayToQueryString(array: Array<unknown>, field: string) {
           element,
           `${prefix}${encodeURIComponent(`[${index}]`)}`
         )
-      } else {
-        if (isObject(element)) {
+      } else if (isObject(element)) {
           for (const key in element) {
             if (hasOwn(element, key)) {
               queryString += `${prefix}${encodeURIComponent(`[${index}]`)}.${encodeURIComponent(key)}=${encodeURIComponent(String(Reflect.get(element, key)))}&`
@@ -155,7 +154,6 @@ export function arrayToQueryString(array: Array<unknown>, field: string) {
         } else {
           queryString += `${prefix}${encodeURIComponent(`[${index}]`)}=${encodeURIComponent(String(element))}&`
         }
-      }
     })
   }
 

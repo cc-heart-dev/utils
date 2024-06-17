@@ -15,7 +15,6 @@ export function isObject(val: unknown): val is object {
  * @param {unknown} val - The value to be checked.
  * @return {boolean} Returns true if the value is a function, false otherwise.
  */
-// eslint-disable-next-line @typescript-eslint/ban-types
 export function isFn(val: unknown): val is Function {
   return typeof val === 'function'
 }

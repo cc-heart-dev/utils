@@ -1,6 +1,6 @@
-import { type Fn } from '../typings/helper'
+import type { Fn } from '../typings/helper'
 
-type CacheResultFunc = {
+interface CacheResultFunc {
   _result?: any
   (...args: any): any
 }

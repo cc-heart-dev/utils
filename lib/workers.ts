@@ -1,5 +1,5 @@
 import { isPromise } from './validate'
-import { Fn } from '../helper'
+import type { Fn } from '../helper'
 import { isUndef } from './validate'
 
 export async function executeConcurrency(
