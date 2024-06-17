@@ -51,7 +51,7 @@
     "@types/node": "^18.17.1",
     "@typescript-eslint/eslint-plugin": "^7.13.0",
     "commitizen": "^4.3.0",
-    "conventional-changelog-cli": "^4.1.0",
+    "conventional-changelog-cli": "^5.0.0",
     "conventional-changelog-gitmoji-config": "^1.5.2",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^9.5.0",
