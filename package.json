@@ -53,7 +53,7 @@
     "conventional-changelog-cli": "^4.1.0",
     "conventional-changelog-gitmoji-config": "^1.5.2",
     "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^8.45.0",
+    "eslint": "^9.0.0",
     "esm": "^3.2.25",
     "gulp": "^4.0.2",
     "husky": "^8.0.3",
