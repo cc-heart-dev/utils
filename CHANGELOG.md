@@ -1,4 +1,8 @@
 # Change Log
+## 5.2.1
+
+-  chore: upgrade deps ([bc5a2b4](https://github.com/cc-hearts/utils/commit/bc5a2b4))
+-  chore: eslint migrate to v9.x ([d19fbc5](https://github.com/cc-hearts/utils/commit/d19fbc5))
 
 ## 5.1.1
 
