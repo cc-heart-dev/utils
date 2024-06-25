@@ -25,7 +25,7 @@ jobs:
           cache: pnpm
 
       - name: Install Deps
-        run: pnpm i
+        run: pnpm install --no-frozen-lockfile
 
       - name: Lint
         run: pnpm eslint
