@@ -11,7 +11,8 @@ import {
   isFalsy,
   isNumber,
   isEffectiveNumber,
-  isPromise
+  isPromise,
+	isValidArray
 } from '../../lib/validate'
 
 describe('isArrayEquals', () => {
@@ -218,4 +219,46 @@ describe('isPromise', () => {
     expect(isPromise(1)).toBe(false)
     expect(isPromise(null)).toBe(false)
   })
+})
+
+describe('isValidArray', () => {
+	test('should return true for a non-empty array', () => {
+    expect(isValidArray([1, 2, 3])).toBe(true);
+  });
+
+  test('should return false for an empty array', () => {
+    expect(isValidArray([])).toBe(false);
+  });
+
+  test('should return false for a non-array value', () => {
+    // @ts-ignore
+    expect(isValidArray(123)).toBe(false);
+  });
+
+  test('should return false for an array with length 0', () => {
+    expect(isValidArray([])).toBe(false);
+  });
+
+  test('should return true for an array with length greater than 0', () => {
+    expect(isValidArray([1])).toBe(true);
+  });
+
+  test('should return true for a complex array', () => {
+    expect(isValidArray([{ a: 1 }, { b: 2 }])).toBe(true);
+  });
+
+  test('should return false for undefined', () => {
+    // @ts-ignore
+    expect(isValidArray(undefined)).toBe(false);
+  });
+
+  test('should return false for null', () => {
+    // @ts-ignore
+    expect(isValidArray(null)).toBe(false);
+  });
+
+  test('should return false for an object', () => {
+    // @ts-ignore
+    expect(isValidArray({})).toBe(false);
+  });
 })

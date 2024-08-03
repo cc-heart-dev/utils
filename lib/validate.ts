@@ -62,8 +62,8 @@ export function isNull(val: unknown): val is null {
 /**
  * Determines whether a value is a primitive.
  *
- * @param {unknown} val - The value to check.
- * @return {boolean} Returns `true` if the value is a primitive, `false` otherwise.
+ * @param val - The value to check.
+ * @return Returns `true` if the value is a primitive, `false` otherwise.
  */
 export function isPrimitive(val: unknown) {
   return typeof val !== 'object' || val === null
@@ -152,3 +152,14 @@ export function isArrayEquals(
 export function hasOwn(obj: object, prop: string): boolean {
   return Object.prototype.hasOwnProperty.call(obj, prop)
 }
+
+/**
+ * Checks if an array is valid, where validity means it is an array and has at least one element.
+ *
+ * @param arr The array to check for validity.
+ * @return Returns true if the array is valid, and false otherwise.
+ */
+export function isValidArray(arr: unknown[]) {
+  return Array.isArray(arr) && arr.length > 0;
+}
+
