@@ -79,6 +79,6 @@
     "*.{md}": "prettier --write"
   },
   "volta": {
-    "node": "22.3.0"
+    "node": "22.6.0"
   }
 }
