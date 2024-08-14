@@ -153,13 +153,13 @@ export function hasOwn(obj: object, prop: string): boolean {
   return Object.prototype.hasOwnProperty.call(obj, prop)
 }
 
-/**
- * Checks if an array is valid, where validity means it is an array and has at least one element.
- *
- * @param arr The array to check for validity.
- * @return Returns true if the array is valid, and false otherwise.
- */
-export function isValidArray(arr: unknown[]) {
-  return Array.isArray(arr) && arr.length > 0;
-}
 
+/**
+ * An array is considered valid if it is an array and its length is greater than or equal to 0.
+ *
+ * @param {unknown[]} arr - The array to be checked.
+ * @returns {boolean} Returns true if the array is valid, false otherwise.
+ */
+export function isEffectiveArray(arr: unknown[]): boolean {
+  return Array.isArray(arr) && arr.length > 0
+}
