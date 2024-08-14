@@ -4,7 +4,7 @@
   "author": "Carl Chen",
   "license": "MIT",
   "description": "🔧 javascript common tools collection",
-  "packageManager": "pnpm@9.4.0",
+  "packageManager": "pnpm@9.7.0",
   "type": "module",
   "repository": {
     "type": "git",
@@ -14,7 +14,6 @@
     "dist"
   ],
   "scripts": {
-    "preinstall": "npx only-allow pnpm && husky",
     "prebuild": "rimraf dist types",
     "build": "npm run prebuild && rollup -c && tsc -p tsconfig.build.json && npm run doc",
     "test": "npx jest",
@@ -39,32 +38,32 @@
     "./*": "./*"
   },
   "devDependencies": {
-    "@cc-heart/eslint-config": "^3.0.4",
+    "@cc-heart/eslint-config": "^3.0.6",
     "@rollup/plugin-commonjs": "^26.0.1",
     "@rollup/plugin-node-resolve": "^15.2.3",
-    "@swc/core": "^1.6.3",
+    "@swc/core": "^1.7.11",
     "@swc/jest": "^0.2.36",
     "@types/jest": "^29.5.12",
-    "@types/node": "^18.19.38",
-    "@typescript-eslint/eslint-plugin": "^7.13.1",
+    "@types/node": "^18.19.44",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
     "commitizen": "^4.3.0",
     "conventional-changelog-cli": "^5.0.0",
     "conventional-changelog-gitmoji-config": "^1.5.2",
     "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^9.5.0",
+    "eslint": "^9.9.0",
     "esm": "^3.2.25",
     "gulp": "^5.0.0",
-    "husky": "^9.0.11",
+    "husky": "^9.1.4",
     "jest": "^29.7.0",
-    "prettier": "^3.3.2",
     "rimraf": "^6.0.0",
-    "rollup": "^4.18.0",
+    "prettier": "^3.3.3",
+    "rollup": "^4.20.0",
     "rollup-plugin-typescript2": "^0.36.0",
     "standard-version": "^9.5.0",
     "ts-node": "^10.9.2",
     "tslib": "^2.6.3",
     "typedoc": "^0.25.13",
-    "typescript": "^5.5.2"
+    "typescript": "^5.5.4"
   },
   "config": {
     "commitizen": {
