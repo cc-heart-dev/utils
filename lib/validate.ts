@@ -153,7 +153,6 @@ export function hasOwn(obj: object, prop: string): boolean {
   return Object.prototype.hasOwnProperty.call(obj, prop)
 }
 
-
 /**
  * An array is considered valid if it is an array and its length is greater than or equal to 0.
  *
@@ -162,4 +161,8 @@ export function hasOwn(obj: object, prop: string): boolean {
  */
 export function isEffectiveArray(arr: unknown[]): boolean {
   return Array.isArray(arr) && arr.length > 0
+}
+
+export function isValidDate(date: Date) {
+  return date.toString() !== 'Invalid Date'
 }

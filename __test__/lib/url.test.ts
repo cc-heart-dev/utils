@@ -11,32 +11,32 @@ describe('convertQueryString', () => {
     expect(queryStringToObject('foo=1&bar=2&baz=3')).toEqual({
       foo: '1',
       bar: '2',
-      baz: '3',
+      baz: '3'
     })
     expect(queryStringToObject('foo=&bar=2&baz=3')).toEqual({
       foo: '',
       bar: '2',
-      baz: '3',
+      baz: '3'
     })
     expect(queryStringToObject('foo[0]=1&foo[1]=2&baz=3')).toEqual({
       foo: ['1', '2'],
-      baz: '3',
+      baz: '3'
     })
     expect(
-      queryStringToObject('foo[0]=1&foo[1][0]=2&foo[1][1]=3&baz=4'),
+      queryStringToObject('foo[0]=1&foo[1][0]=2&foo[1][1]=3&baz=4')
     ).toEqual({ foo: ['1', ['2', '3']], baz: '4' })
     expect(queryStringToObject('foo[0].a=1&foo[1].b=2&baz=3')).toEqual({
       foo: [{ a: '1' }, { b: '2' }],
-      baz: '3',
+      baz: '3'
     })
   })
 
   test('should correctly parse keys with multiple levels of arrays and objects', () => {
     const result = queryStringToObject(
-      'foo[0][0].a=1&foo[0][1].b=2&foo[1].c[0]=3&foo[1].c[1]=4&foo[2]=5',
+      'foo[0][0].a=1&foo[0][1].b=2&foo[1].c[0]=3&foo[1].c[1]=4&foo[2]=5'
     )
     expect(result).toEqual({
-      foo: [[{ a: '1' }, { b: '2' }], { c: ['3', '4'] }, '5'],
+      foo: [[{ a: '1' }, { b: '2' }], { c: ['3', '4'] }, '5']
     })
   })
 
@@ -46,19 +46,19 @@ describe('convertQueryString', () => {
       foo: {
         bar: {
           baz: {
-            qux: '1',
-          },
-        },
-      },
+            qux: '1'
+          }
+        }
+      }
     })
   })
 
   test('should handle mixed arrays and objects', () => {
     const result = queryStringToObject(
-      'foo[0].bar=1&foo[1].baz[0]=2&foo[1].baz[1].qux=3',
+      'foo[0].bar=1&foo[1].baz[0]=2&foo[1].baz[1].qux=3'
     )
     expect(result).toEqual({
-      foo: [{ bar: '1' }, { baz: ['2', { qux: '3' }] }],
+      foo: [{ bar: '1' }, { baz: ['2', { qux: '3' }] }]
     })
   })
 
@@ -153,13 +153,13 @@ describe('objectToQueryString', () => {
 
   test('should return a query string for a simple array', () => {
     expect(objectToQueryString({ foo: ['bar', ['baz', 'pizza']] })).toEqual(
-      'foo%5B0%5D=bar&foo%5B1%5D%5B0%5D=baz&foo%5B1%5D%5B1%5D=pizza',
+      'foo%5B0%5D=bar&foo%5B1%5D%5B0%5D=baz&foo%5B1%5D%5B1%5D=pizza'
     )
   })
 
   test('should return a query string for a simple array object', () => {
     expect(objectToQueryString({ foo: ['bar', ['baz', { a: 'b' }]] })).toEqual(
-      'foo%5B0%5D=bar&foo%5B1%5D%5B0%5D=baz&foo%5B1%5D%5B1%5D.a=b',
+      'foo%5B0%5D=bar&foo%5B1%5D%5B0%5D=baz&foo%5B1%5D%5B1%5D.a=b'
     )
   })
 

@@ -221,18 +221,17 @@ describe('isPromise', () => {
   })
 })
 
-
 describe('isEffectiveArray', () => {
   test('should return true for a non-empty array', () => {
-    expect(isEffectiveArray([1, 2, 3])).toBe(true);
-  });
+    expect(isEffectiveArray([1, 2, 3])).toBe(true)
+  })
 
   test('should return false for an empty array', () => {
-    expect(isEffectiveArray([])).toBe(false);
-  });
+    expect(isEffectiveArray([])).toBe(false)
+  })
 
   test('should return false for a non-array', () => {
     // @ts-expect-error: ignore
-    expect(isEffectiveArray(123)).toBe(false);
-  });
-});
+    expect(isEffectiveArray(123)).toBe(false)
+  })
+})

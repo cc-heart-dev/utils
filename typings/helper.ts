@@ -11,5 +11,8 @@ export type GetPromiseType<T> = T extends Promise<infer R> ? R : T
 
 export type Fn = (...args: any) => any
 
+export type GetAsyncRetutnType<T extends (...args: any) => Promise<any>> =
+  GetPromiseType<ReturnType<T>>
+
 export * from './url'
 export * from './valid'

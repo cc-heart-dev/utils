@@ -146,14 +146,14 @@ export function arrayToQueryString(array: Array<unknown>, field: string) {
           `${prefix}${encodeURIComponent(`[${index}]`)}`
         )
       } else if (isObject(element)) {
-          for (const key in element) {
-            if (hasOwn(element, key)) {
-              queryString += `${prefix}${encodeURIComponent(`[${index}]`)}.${encodeURIComponent(key)}=${encodeURIComponent(String(Reflect.get(element, key)))}&`
-            }
+        for (const key in element) {
+          if (hasOwn(element, key)) {
+            queryString += `${prefix}${encodeURIComponent(`[${index}]`)}.${encodeURIComponent(key)}=${encodeURIComponent(String(Reflect.get(element, key)))}&`
           }
-        } else {
-          queryString += `${prefix}${encodeURIComponent(`[${index}]`)}=${encodeURIComponent(String(element))}&`
         }
+      } else {
+        queryString += `${prefix}${encodeURIComponent(`[${index}]`)}=${encodeURIComponent(String(element))}&`
+      }
     })
   }
 
