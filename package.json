@@ -27,7 +27,7 @@
   },
   "typesVersions": {
 		"*": {
-			"*": ["./dist*", "./dist/types", "./*"]
+			"*": ["./dist", "./dist/types", "./*"]
 		}
 	},
   "exports": {
