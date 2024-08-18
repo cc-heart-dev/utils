@@ -25,6 +25,11 @@
     "cz": "npx commitizen",
     "changelog": "conventional-changelog -p gitmoji-config -i CHANGELOG_PRE.md -s -r 5.0.0"
   },
+  "typesVersions": {
+		"*": {
+			"*": ["./dist*", "./dist/types", "./*"]
+		}
+	},
   "exports": {
     ".": [
       {
@@ -77,8 +82,5 @@
       "prettier --write"
     ],
     "*.{md}": "prettier --write"
-  },
-  "volta": {
-    "node": "22.3.0"
   }
 }
