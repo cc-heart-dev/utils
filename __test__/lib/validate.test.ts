@@ -12,8 +12,9 @@ import {
   isNumber,
   isEffectiveNumber,
   isPromise,
-  isEffectiveArray
-} from '../../lib/validate'
+  isValidArray,
+  isValidDate
+} from '../../lib'
 
 describe('isArrayEquals', () => {
   it('should return true if two arrays are equal', () => {
@@ -221,17 +222,56 @@ describe('isPromise', () => {
   })
 })
 
-describe('isEffectiveArray', () => {
+describe('isValidArray', () => {
   test('should return true for a non-empty array', () => {
-    expect(isEffectiveArray([1, 2, 3])).toBe(true)
+    expect(isValidArray([1, 2, 3])).toBe(true)
   })
 
   test('should return false for an empty array', () => {
-    expect(isEffectiveArray([])).toBe(false)
+    expect(isValidArray([])).toBe(false)
   })
 
-  test('should return false for a non-array', () => {
-    // @ts-expect-error: ignore
-    expect(isEffectiveArray(123)).toBe(false)
+  test('should return false for a non-array value', () => {
+    // @ts-ignore
+    expect(isValidArray(123)).toBe(false)
+  })
+
+  test('should return false for an array with length 0', () => {
+    expect(isValidArray([])).toBe(false)
+  })
+
+  test('should return true for an array with length greater than 0', () => {
+    expect(isValidArray([1])).toBe(true)
+  })
+
+  test('should return true for a complex array', () => {
+    expect(isValidArray([{ a: 1 }, { b: 2 }])).toBe(true)
+  })
+
+  test('should return false for undefined', () => {
+    // @ts-ignore
+    expect(isValidArray(undefined)).toBe(false)
+  })
+
+  test('should return false for null', () => {
+    // @ts-ignore
+    expect(isValidArray(null)).toBe(false)
+  })
+
+  test('should return false for an object', () => {
+    // @ts-ignore
+    expect(isValidArray({})).toBe(false)
   })
 })
+
+describe('isValidDate function', () => {
+  it('should return true for a valid date', () => {
+    const validDate = new Date();
+    expect(isValidDate(validDate)).toBe(true);
+  });
+
+  it('should return false for an invalid date', () => {
+    const invalidDate = new Date('invalid');
+    expect(isValidDate(invalidDate)).toBe(false);
+  });
+});

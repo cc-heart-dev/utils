@@ -118,4 +118,13 @@ describe('formatDateByArray', () => {
     const result = formatDateByArray([2023, 5, 10, 10, 10, 10])
     expect(isValidDate(new Date(result))).toEqual(true)
   })
+
+  it('should handle invalid date generated from array', () => {
+    const invalidDateArray = [2024, NaN, 1];
+    const result = formatDateByArray(invalidDateArray);
+    expect(result).toEqual('Invalid Date');
+    const consoleWarnSpy = jest.spyOn(console, 'warn');
+    expect(consoleWarnSpy).toHaveBeenCalledWith(`Invalid date generated from array: 2024,NaN,1`);
+    consoleWarnSpy.mockRestore();
+  });
 })

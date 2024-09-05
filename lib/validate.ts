@@ -9,6 +9,17 @@ export const _toString = Object.prototype.toString
 export function isObject(val: unknown): val is object {
   return _toString.call(val) === '[object Object]'
 }
+
+/**
+ * Checks if the given value is an symbol.
+ *
+ * @param {unknown} val - The value to be checked.
+ * @return {boolean} Returns true if the value is an object, otherwise false.
+ */
+
+export function isSymbol(val: unknown): val is Symbol {
+  return typeof val === 'symbol'
+}
 /**
  * Checks if the given value is a function.
  *
@@ -146,10 +157,10 @@ export function isArrayEquals(
  * Checks if the given object has its own property.
  *
  * @param {object} obj - The object to check.
- * @param {string} prop - The property to check.
+ * @param {PropertyKey} prop - The property to check.
  * @return {boolean} Returns true if the object has its own property, otherwise false.
  */
-export function hasOwn(obj: object, prop: string): boolean {
+export function hasOwn(obj: object, prop: PropertyKey): boolean {
   return Object.prototype.hasOwnProperty.call(obj, prop)
 }
 
@@ -159,8 +170,12 @@ export function hasOwn(obj: object, prop: string): boolean {
  * @param {unknown[]} arr - The array to be checked.
  * @returns {boolean} Returns true if the array is valid, false otherwise.
  */
-export function isEffectiveArray(arr: unknown[]): boolean {
+export function isValidArray(arr: unknown[]): boolean {
   return Array.isArray(arr) && arr.length > 0
+}
+
+export function isPropertyKey(val: unknown): val is PropertyKey {
+  return isStr(val) || isNumber(val) || isSymbol(val)
 }
 
 export function isValidDate(date: Date) {
