@@ -3,8 +3,8 @@ export const _toString = Object.prototype.toString
 /**
  * Checks if the given value is an object.
  *
- * @param {unknown} val - The value to be checked.
- * @return {boolean} Returns true if the value is an object, otherwise false.
+ * @param val - The value to be checked.
+ * @return Returns true if the value is an object, otherwise false.
  */
 export function isObject(val: unknown): val is object {
   return _toString.call(val) === '[object Object]'
@@ -13,18 +13,18 @@ export function isObject(val: unknown): val is object {
 /**
  * Checks if the given value is an symbol.
  *
- * @param {unknown} val - The value to be checked.
- * @return {boolean} Returns true if the value is an object, otherwise false.
+ * @param val - The value to be checked.
+ * @return Returns true if the value is an object, otherwise false.
  */
 
-export function isSymbol(val: unknown): val is Symbol {
+export function isSymbol(val: unknown): val is symbol {
   return typeof val === 'symbol'
 }
 /**
  * Checks if the given value is a function.
  *
- * @param {unknown} val - The value to be checked.
- * @return {boolean} Returns true if the value is a function, false otherwise.
+ * @param val - The value to be checked.
+ * @return Returns true if the value is a function, false otherwise.
  */
 export function isFn(val: unknown): val is Function {
   return typeof val === 'function'
@@ -33,8 +33,8 @@ export function isFn(val: unknown): val is Function {
 /**
  * Checks if the given value is a string.
  *
- * @param {unknown} val - The value to be checked.
- * @return {boolean} Returns true if the value is a string, false otherwise.
+ * @param val - The value to be checked.
+ * @return Returns true if the value is a string, false otherwise.
  */
 export function isStr(val: unknown): val is string {
   return typeof val === 'string'
@@ -43,8 +43,8 @@ export function isStr(val: unknown): val is string {
 /**
  * Checks if the provided value is a boolean.
  *
- * @param {unknown} val - The value to check.
- * @return {boolean} Returns true if the value is a boolean, false otherwise.
+ * @param val - The value to check.
+ * @return Returns true if the value is a boolean, false otherwise.
  */
 export function isBool(val: unknown): val is boolean {
   return typeof val === 'boolean'
@@ -53,8 +53,8 @@ export function isBool(val: unknown): val is boolean {
 /**
  * Checks if a value is undefined.
  *
- * @param {unknown} val - The value to check.
- * @return {boolean} Returns true if the value is undefined, otherwise false.
+ * @param val - The value to check.
+ * @return Returns true if the value is undefined, otherwise false.
  */
 export function isUndef(val: unknown): val is undefined {
   return typeof val === 'undefined'
@@ -63,8 +63,8 @@ export function isUndef(val: unknown): val is undefined {
 /**
  * Checks if the given value is null.
  *
- * @param {unknown} val - The value to check.
- * @return {boolean} Returns true if the value is null, false otherwise.
+ * @param val - The value to check.
+ * @return Returns true if the value is null, false otherwise.
  */
 export function isNull(val: unknown): val is null {
   return val === null
@@ -83,8 +83,8 @@ export function isPrimitive(val: unknown) {
 /**
  * Checks if a value is falsy.
  *
- * @param {unknown} val - The value to check.
- * @return {boolean} Returns true if the value is falsy, otherwise false.
+ * @param val - The value to check.
+ * @return Returns true if the value is falsy, otherwise false.
  */
 export function isFalsy(val: unknown): val is false {
   return !val
@@ -93,8 +93,8 @@ export function isFalsy(val: unknown): val is false {
 /**
  * Checks if the given value is a number.
  *
- * @param {unknown} val - The value to be checked.
- * @return {boolean} Returns true if the value is a number, false otherwise.
+ * @param val - The value to be checked.
+ * @return Returns true if the value is a number, false otherwise.
  */
 export function isNumber(val: unknown): val is number {
   return typeof val === 'number'
@@ -103,7 +103,7 @@ export function isNumber(val: unknown): val is number {
 /**
  * determines if it is a valid value other than NaN
  * @param val
- * @returns
+ * @return
  */
 export function isEffectiveNumber(val: unknown): val is number {
   if (!isNumber(val)) return false
@@ -113,8 +113,8 @@ export function isEffectiveNumber(val: unknown): val is number {
 /**
  * Checks if a value is a Promise.
  *
- * @param {unknown} val - The value to check.
- * @return {boolean} Returns `true` if the value is a Promise, else `false`.
+ * @param val - The value to check.
+ * @return Returns `true` if the value is a Promise, else `false`.
  */
 export function isPromise(val: unknown): val is Promise<unknown> {
   return (
@@ -130,9 +130,9 @@ export function isPromise(val: unknown): val is Promise<unknown> {
  *
  * Checks if two arrays are equal.
  *
- * @param {unknown[]} firstArr - The first array to compare.
- * @param {unknown[]} secondArr - The second array to compare.
- * @return {boolean} Returns true if the arrays are equal, otherwise false.
+ * @param firstArr - The first array to compare.
+ * @param secondArr - The second array to compare.
+ * @return Returns true if the arrays are equal, otherwise false.
  */
 export function isArrayEquals(
   firstArr: unknown[],
@@ -156,9 +156,9 @@ export function isArrayEquals(
 /**
  * Checks if the given object has its own property.
  *
- * @param {object} obj - The object to check.
- * @param {PropertyKey} prop - The property to check.
- * @return {boolean} Returns true if the object has its own property, otherwise false.
+ * @param obj - The object to check.
+ * @param prop - The property to check.
+ * @return  Returns true if the object has its own property, otherwise false.
  */
 export function hasOwn(obj: object, prop: PropertyKey): boolean {
   return Object.prototype.hasOwnProperty.call(obj, prop)
@@ -167,8 +167,8 @@ export function hasOwn(obj: object, prop: PropertyKey): boolean {
 /**
  * An array is considered valid if it is an array and its length is greater than or equal to 0.
  *
- * @param {unknown[]} arr - The array to be checked.
- * @returns {boolean} Returns true if the array is valid, false otherwise.
+ * @param arr - The array to be checked.
+ * @return Returns true if the array is valid, false otherwise.
  */
 export function isValidArray(arr: unknown[]): boolean {
   return Array.isArray(arr) && arr.length > 0

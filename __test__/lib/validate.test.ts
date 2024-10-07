@@ -266,12 +266,12 @@ describe('isValidArray', () => {
 
 describe('isValidDate function', () => {
   it('should return true for a valid date', () => {
-    const validDate = new Date();
-    expect(isValidDate(validDate)).toBe(true);
-  });
+    const validDate = new Date()
+    expect(isValidDate(validDate)).toBe(true)
+  })
 
   it('should return false for an invalid date', () => {
-    const invalidDate = new Date('invalid');
-    expect(isValidDate(invalidDate)).toBe(false);
-  });
-});
+    const invalidDate = new Date('invalid')
+    expect(isValidDate(invalidDate)).toBe(false)
+  })
+})

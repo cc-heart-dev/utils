@@ -66,7 +66,7 @@ const definePrams = (params: any, index: number) => {
  * If a function returns a Promise, the next function is called with the resolved value.
  *
  * @param fns - The functions to pipe.
- * @returns A new function that takes any number of arguments and pipes them through `fns`.
+ * @return A new function that takes any number of arguments and pipes them through `fns`.
  */
 export function pipe(...fns: Array<Fn>) {
   return (...args: any[]) => {
@@ -87,7 +87,7 @@ export function pipe(...fns: Array<Fn>) {
  * If a function returns a Promise, the next function is called with the resolved value.
  *
  * @param fns - The functions to compose.
- * @returns A new function that takes any number of arguments and composes them through `fns`.
+ * @return A new function that takes any number of arguments and composes them through `fns`.
  */
 export function compose(...fns: Array<Fn>) {
   return pipe(...fns.reverse())

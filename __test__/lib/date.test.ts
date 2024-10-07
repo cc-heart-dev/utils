@@ -1,4 +1,9 @@
-import { getCurrentTimeISOString, formatDateByTimeStamp, formatDateTimeByString ,formatDateByArray} from '../../lib/date'
+import {
+  getCurrentTimeISOString,
+  formatDateByTimeStamp,
+  formatDateTimeByString,
+  formatDateByArray
+} from '../../lib/date'
 import { isValidDate } from '../../lib/validate'
 
 describe('getCurrentTimeISOString', () => {
@@ -45,62 +50,64 @@ describe('formatDateByTimeStamp', () => {
   })
 })
 
-
 describe('formatDateTimeByString', () => {
   beforeEach(() => {
-    jest.spyOn(console, 'warn').mockImplementation(() => {/** */});
-  });
-
-  afterEach(() => {
-    jest.restoreAllMocks();
-  });
-
-  test('should return date string when input is valid date', () => {
-    const dateString = '2023-07-01';
-    const result = formatDateTimeByString(dateString);
-
-    expect(result).toEqual('2023-07-01 08:00:00');
-  });
-
-  test('should return default formatted date string when input is valid date and no formatter provided', () => {
-    const dateString = '2023-07-01 16:00:00';
-    const result = formatDateTimeByString(dateString);
-
-    expect(result).toEqual('2023-07-01 16:00:00');
-  });
-
-  test('should return custom formatted date string when input is valid date and formatter provided', () => {
-    const dateString = '2023-07-01';
-    const formatter = 'YYYY/MM/DD';
-    const result = formatDateTimeByString(dateString, formatter);
-
-    expect(result).toEqual('2023/07/01');
-  });
-
-  test('should return date string when input is invalid date', () => {
-    const dateString = 'invalid date';
-    const result = formatDateTimeByString(dateString);
-
-    expect(result).toEqual('Invalid Date');
-  });
-
-  test('should call console.warn when input is invalid date', () => {
-    const dateString = 'invalid date';
-    formatDateTimeByString(dateString);
-
-    expect(console.warn).toHaveBeenCalledTimes(1);
-    expect(console.warn).toHaveBeenCalledWith('invalid date string');
-  });
-});
-
-
-describe('formatDateByArray', () => {
-  beforeEach(() => {
-    jest.spyOn(console, 'warn').mockImplementation(() => {/** */})
+    jest.spyOn(console, 'warn').mockImplementation(() => {
+      /** */
+    })
   })
 
   afterEach(() => {
-    jest.restoreAllMocks();
+    jest.restoreAllMocks()
+  })
+
+  test('should return date string when input is valid date', () => {
+    const dateString = '2023-07-01'
+    const result = formatDateTimeByString(dateString)
+
+    expect(result).toEqual('2023-07-01 08:00:00')
+  })
+
+  test('should return default formatted date string when input is valid date and no formatter provided', () => {
+    const dateString = '2023-07-01 16:00:00'
+    const result = formatDateTimeByString(dateString)
+
+    expect(result).toEqual('2023-07-01 16:00:00')
+  })
+
+  test('should return custom formatted date string when input is valid date and formatter provided', () => {
+    const dateString = '2023-07-01'
+    const formatter = 'YYYY/MM/DD'
+    const result = formatDateTimeByString(dateString, formatter)
+
+    expect(result).toEqual('2023/07/01')
+  })
+
+  test('should return date string when input is invalid date', () => {
+    const dateString = 'invalid date'
+    const result = formatDateTimeByString(dateString)
+
+    expect(result).toEqual('Invalid Date')
+  })
+
+  test('should call console.warn when input is invalid date', () => {
+    const dateString = 'invalid date'
+    formatDateTimeByString(dateString)
+
+    expect(console.warn).toHaveBeenCalledTimes(1)
+    expect(console.warn).toHaveBeenCalledWith('invalid date string')
+  })
+})
+
+describe('formatDateByArray', () => {
+  beforeEach(() => {
+    jest.spyOn(console, 'warn').mockImplementation(() => {
+      /** */
+    })
+  })
+
+  afterEach(() => {
+    jest.restoreAllMocks()
   })
 
   test('should return Invalid Date when array is not an array or length is less than 2', () => {
@@ -120,11 +127,13 @@ describe('formatDateByArray', () => {
   })
 
   it('should handle invalid date generated from array', () => {
-    const invalidDateArray = [2024, NaN, 1];
-    const result = formatDateByArray(invalidDateArray);
-    expect(result).toEqual('Invalid Date');
-    const consoleWarnSpy = jest.spyOn(console, 'warn');
-    expect(consoleWarnSpy).toHaveBeenCalledWith(`Invalid date generated from array: 2024,NaN,1`);
-    consoleWarnSpy.mockRestore();
-  });
+    const invalidDateArray = [2024, NaN, 1]
+    const result = formatDateByArray(invalidDateArray)
+    expect(result).toEqual('Invalid Date')
+    const consoleWarnSpy = jest.spyOn(console, 'warn')
+    expect(consoleWarnSpy).toHaveBeenCalledWith(
+      `Invalid date generated from array: 2024,NaN,1`
+    )
+    consoleWarnSpy.mockRestore()
+  })
 })

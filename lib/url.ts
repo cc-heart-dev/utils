@@ -51,7 +51,7 @@ export function parseKey(
  * @template T - The type of the URL string.
  * @template U - The type of the object to return.
  * @param {T} url - The URL string to convert.
- * @returns {U} The object representation of the query string in `url`.
+ * @return {U} The object representation of the query string in `url`.
  */
 export function queryStringToObject<
   T extends string,
@@ -71,8 +71,8 @@ export function queryStringToObject<
 /**
  * Converts an object to a query string.
  *
- * @param {Record<PropertyKey, any>} data - The object to convert.
- * @returns {string} The query string representation of `data`.
+ * @param data - The object to convert.
+ * @return The query string representation of `data`.
  */
 export function objectToQueryString<T extends Record<PropertyKey, any>>(
   data: T
@@ -95,7 +95,7 @@ export function objectToQueryString<T extends Record<PropertyKey, any>>(
  * convert params routes to regular expressions
  *
  * @param path a params paths
- * @returns null or An array contains the RegExp that matches the params and the path for each params parameter
+ * @return null or An array contains the RegExp that matches the params and the path for each params parameter
  */
 export function convertParamsRouterToRegExp(path: string) {
   const matcher = path.match(/:(.*?)(?:\/|$)/g)
@@ -111,7 +111,7 @@ export function convertParamsRouterToRegExp(path: string) {
  *
  * @param path - The path to get the basename from.
  * @param [suffix] - An optional suffix to remove from the basename.
- * @returns  The basename of the path.
+ * @return  The basename of the path.
  */
 export function basename(path: string, suffix?: string) {
   const separator = '/'
@@ -133,7 +133,7 @@ export function basename(path: string, suffix?: string) {
  * Convert a multi-dimensional array to a query string.
  * @param array The multi-dimensional array to convert.
  * @param field The field name to use in the query string.
- * @returns The generated query string.
+ * @return The generated query string.
  */
 export function arrayToQueryString(array: Array<unknown>, field: string) {
   let queryString = ''

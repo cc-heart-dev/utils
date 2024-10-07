@@ -2,7 +2,7 @@
  * @deprecated v6.0.0 is deprecated
  * Generates a random UUID.
  *
- * @return {string} The generated UUID.
+ * @return The generated UUID.
  */
 export function randomUUID() {
   let d = new Date().getTime()

@@ -8,23 +8,39 @@ const createDateWithoutTimezoneOffset = (...rest: any[]) => {
 
 /**
  * Returns the current time in ISO string format.
- * @returns {string} The current time in ISO string format.
+ * @return  The current time in ISO string format.
  */
 export function getCurrentTimeISOString(): string {
   return createDateWithoutTimezoneOffset().toISOString()
 }
 
-function formatDateString(date: number, maxLength: number): string {
+function formatDateString(date: number, maxLength: number) {
   return String(date).padStart(maxLength, '0')
 }
 
-function formatDate(date: Date, formatter = 'YYYY-MM-DD hh:mm:ss', utc = false) {
-  const year = formatDateString(date[utc ? 'getUTCFullYear' : 'getFullYear'](), 4)
-  const month = formatDateString(date[utc ? 'getUTCMonth' : 'getMonth']() + 1, 2)
+function formatDate(
+  date: Date,
+  formatter = 'YYYY-MM-DD hh:mm:ss',
+  utc = false
+) {
+  const year = formatDateString(
+    date[utc ? 'getUTCFullYear' : 'getFullYear'](),
+    4
+  )
+  const month = formatDateString(
+    date[utc ? 'getUTCMonth' : 'getMonth']() + 1,
+    2
+  )
   const day = formatDateString(date[utc ? 'getUTCDate' : 'getDate'](), 2)
   const hours = formatDateString(date[utc ? 'getUTCHours' : 'getHours'](), 2)
-  const minutes = formatDateString(date[utc ? 'getUTCMinutes' : 'getMinutes'](), 2)
-  const seconds = formatDateString(date[utc ? 'getUTCMinutes' : 'getSeconds'](), 2)
+  const minutes = formatDateString(
+    date[utc ? 'getUTCMinutes' : 'getMinutes'](),
+    2
+  )
+  const seconds = formatDateString(
+    date[utc ? 'getUTCMinutes' : 'getSeconds'](),
+    2
+  )
 
   return formatter
     .replace('YYYY', year)
@@ -41,7 +57,7 @@ function formatDate(date: Date, formatter = 'YYYY-MM-DD hh:mm:ss', utc = false) 
  * @param timeStamp - The timestamp to be formatted, in milliseconds.
  * @param formatter - Optional. A specific format string to format the date. Defaults to 'YYYY-MM-DD HH:mm:ss'.
  *
- * @returns The formatted date string.
+ * @return The formatted date string.
  *
  * @throws {Error} Throws an error if the timestamp is invalid or out of range.
  *
@@ -67,7 +83,7 @@ export function formatDateByTimeStamp(timeStamp: number, formatter?: string) {
  * @param dateString - A string representing the date.
  * @param formatter - Optional. A specific format string to format the date. Defaults to 'YYYY-MM-DD HH:mm:ss'.
  *
- * @returns The formatted date string.
+ * @return The formatted date string.
  *
  * @throws {Error} Throws an error if the date string is invalid or cannot be parsed into a Date object.
  *
@@ -96,7 +112,7 @@ export function formatDateTimeByString(dateString: string, formatter?: string) {
  * @param array - The array representing the date. This array should contain year, month, day, hour, minute, and second values.
  * @param formatter - Optional. A specific format string to format the date. Defaults to 'YYYY-MM-DD HH:mm:ss'.
  *
- * @returns The formatted date string.
+ * @return The formatted date string.
  *
  * @throws {Error} Throws an error if the array is invalid or does not contain the necessary values.
  *

@@ -15,10 +15,10 @@ interface DefineDebounceFn {
 
 /**
  * DefineDebounceFn is a function that creates a debounced function.
- * @param {Function} fn - The function to be debounced.
- * @param {number} delay - The delay in milliseconds to wait before the debounced function is called. Default is 500ms.
- * @param {boolean} immediate - Whether the debounced function should be called immediately before the delay. Default is false.
- * @returns {CacheResultFunc} - The debounce function.
+ * @param fn - The function to be debounced.
+ * @param delay - The delay in milliseconds to wait before the debounced function is called. Default is 500ms.
+ * @param immediate - Whether the debounced function should be called immediately before the delay. Default is false.
+ * @return - The debounce function.
  */
 export const defineDebounceFn: DefineDebounceFn = function (
   fn: Fn,
@@ -45,8 +45,8 @@ export const defineDebounceFn: DefineDebounceFn = function (
 /**
  * Creates a function that can only be called once.
  *
- * @param {(...args: any) => any} fn - The function to be called once.
- * @returns {(...args: any) => any} - A new function that can only be called once.
+ * @param  fn - The function to be called once.
+ * @return  - A new function that can only be called once.
  */
 export function defineOnceFn<T>(fn: (...args: any) => T) {
   let __once = false
@@ -65,9 +65,9 @@ export function defineOnceFn<T>(fn: (...args: any) => T) {
 
 /**
  * defineThrottleFn is a function that creates a throttled function.
- * @param {Function} fn - The function to be throttled.
- * @param {number} delay - The delay in milliseconds to wait before the throttled function is called. Default is 500ms.
- * @returns {CacheResultFunc} - The throttled function.
+ * @param - The function to be throttled.
+ * @param - The delay in milliseconds to wait before the throttled function is called. Default is 500ms.
+ * @return - The throttled function.
  */
 export function defineThrottleFn(fn: Fn, delay = 500) {
   let startTimer: number | null = null
