@@ -2,7 +2,8 @@ import {
   executeConcurrency,
   executeQueue,
   pipe,
-  compose
+  compose,
+  setintervalByTimeout
 } from '../../lib/workers'
 
 const warningFn = (console.warn = jest.fn())
@@ -200,5 +201,53 @@ describe('compose', () => {
     const composedFunction = compose()
 
     expect(composedFunction(5)).toEqual(5)
+  })
+})
+
+describe('setintervalByTimeout', () => {
+  test('setintervalByTimeout should call function at regular intervals', () => {
+    const fn = jest.fn()
+
+    jest.useFakeTimers()
+
+    // 设置间隔 1000ms 调用 fn
+    const clearMyInterval = setintervalByTimeout(fn, 1000)
+
+    jest.advanceTimersByTime(1000)
+    expect(fn).toHaveBeenCalledTimes(1)
+
+    jest.advanceTimersByTime(2000)
+    expect(fn).toHaveBeenCalledTimes(3)
+
+    // 清除定时器
+    clearMyInterval()
+
+    // 推进更多时间，fn 不应该再被调用
+    jest.advanceTimersByTime(3000)
+    expect(fn).toHaveBeenCalledTimes(3)
+
+    jest.useRealTimers()
+  })
+
+  test('setintervalByTimeout should handle async functions correctly', async () => {
+    const fn = jest.fn().mockResolvedValueOnce(null) // 模拟异步函数
+
+    jest.useFakeTimers()
+
+    const clearMyInterval = setintervalByTimeout(fn, 1000)
+
+    // 推进 1000ms，fn 应该被调用一次
+    jest.advanceTimersByTime(1000)
+    await Promise.resolve() // 等待异步执行完成
+    expect(fn).toHaveBeenCalledTimes(1)
+
+    // 推进 2000ms，fn 应该被调用两次
+    jest.advanceTimersByTime(2000)
+    await Promise.resolve() // 等待异步执行完成
+    expect(fn).toHaveBeenCalledTimes(3)
+
+    clearMyInterval()
+
+    jest.useRealTimers()
   })
 })

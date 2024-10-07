@@ -174,9 +174,24 @@ export function isValidArray(arr: unknown[]): boolean {
   return Array.isArray(arr) && arr.length > 0
 }
 
+/**
+ * Checks if a given value is a valid PropertyKey.
+ * A PropertyKey is a string, number, or symbol that can be used as a property name.
+ *
+ * @param val - The value to check.
+ * @return True if the value is a PropertyKey, false otherwise.
+ */
+
 export function isPropertyKey(val: unknown): val is PropertyKey {
   return isStr(val) || isNumber(val) || isSymbol(val)
 }
+
+/**
+ * Checks if a given date is valid.
+ *
+ * @param date - The date to check.
+ * @return True if the date is valid, false otherwise.
+ */
 
 export function isValidDate(date: Date) {
   return date.toString() !== 'Invalid Date'

@@ -13,7 +13,8 @@ import {
   isEffectiveNumber,
   isPromise,
   isValidArray,
-  isValidDate
+  isValidDate,
+  isPropertyKey
 } from '../../lib'
 
 describe('isArrayEquals', () => {
@@ -273,5 +274,35 @@ describe('isValidDate function', () => {
   it('should return false for an invalid date', () => {
     const invalidDate = new Date('invalid')
     expect(isValidDate(invalidDate)).toBe(false)
+  })
+})
+
+describe('isPropertyKey function', () => {
+  test('should return true for a number', () => {
+    expect(isPropertyKey(123)).toBe(true)
+  })
+
+  test('should return true for a symbol', () => {
+    expect(isPropertyKey(Symbol('test'))).toBe(true)
+  })
+
+  test('should return false for an object', () => {
+    expect(isPropertyKey({})).toBe(false)
+  })
+
+  test('should return false for a function', () => {
+    expect(
+      isPropertyKey(() => {
+        /** */
+      })
+    ).toBe(false)
+  })
+
+  test('should return false for null', () => {
+    expect(isPropertyKey(null)).toBe(false)
+  })
+
+  test('should return false for undefined', () => {
+    expect(isPropertyKey(undefined)).toBe(false)
   })
 })

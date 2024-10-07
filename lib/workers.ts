@@ -92,3 +92,33 @@ export function pipe(...fns: Array<Fn>) {
 export function compose(...fns: Array<Fn>) {
   return pipe(...fns.reverse())
 }
+
+/**
+ * Executes a given function repeatedly at a specified interval using setTimeout and clearTimeout.
+ *
+ * @param func - The function to be executed.
+ * @param delay - The interval (in milliseconds) at which the function should be executed.
+ * @return A function that, when called, clears the interval and stops the execution of the given function.
+ */
+export function setintervalByTimeout(func: Function, delay: number) {
+  let timer: number | NodeJS.Timeout | null = null
+
+  const fn = function () {
+    timer = setTimeout(async () => {
+      const res = func()
+      if (isPromise(res)) {
+        await res
+      }
+      fn()
+    }, delay)
+  }
+
+  const clearInterval = () => {
+    if (timer) {
+      clearTimeout(timer)
+      timer = null
+    }
+  }
+  fn()
+  return clearInterval
+}
