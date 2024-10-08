@@ -233,7 +233,7 @@ describe('isValidArray', () => {
   })
 
   test('should return false for a non-array value', () => {
-    // @ts-ignore
+    // @ts-expect-error: expect error
     expect(isValidArray(123)).toBe(false)
   })
 
@@ -250,17 +250,17 @@ describe('isValidArray', () => {
   })
 
   test('should return false for undefined', () => {
-    // @ts-ignore
+    // @ts-expect-error: expect error
     expect(isValidArray(undefined)).toBe(false)
   })
 
   test('should return false for null', () => {
-    // @ts-ignore
+    // @ts-expect-error: expect error
     expect(isValidArray(null)).toBe(false)
   })
 
   test('should return false for an object', () => {
-    // @ts-ignore
+    // @ts-expect-error: expect error
     expect(isValidArray({})).toBe(false)
   })
 })
