@@ -39,7 +39,7 @@ jobs:
           branch: docs
           folder: docs
           token: ${{ secrets.GITHUB_TOKEN }}
-          repository-name: cc-hearts/utils
+          repository-name: cc-heart-dev/utils
           target-folder: ./
           single-commit: true
           clean: true
