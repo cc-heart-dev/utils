@@ -47,7 +47,7 @@ export const HTTP_STATUS = {
   SERVICE_UNAVAILABLE: 503,
   GATEWAY_TIMEOUT: 504,
   HTTP_VERSION_NOT_SUPPORTED: 505
-}
+} as const
 
 export const REQUEST_METHOD = {
   GET: 'GET',
@@ -59,7 +59,7 @@ export const REQUEST_METHOD = {
   OPTIONS: 'OPTIONS',
   HEAD: 'HEAD',
   SEARCH: 'SEARCH'
-}
+} as const
 
 export const MIME_TYPES = {
   TXT: 'text/plain',
@@ -149,4 +149,4 @@ export const MIME_TYPES = {
   RTF: 'application/rtf',
   ALZ: 'application/x-alz',
   '7ZIP': 'application/x-7z-compressed'
-}
+} as const
