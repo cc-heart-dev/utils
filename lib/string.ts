@@ -2,7 +2,7 @@
  * Capitalizes the first letter of a string.
  *
  * @param target - The string to be capitalized.
- * @return - The capitalized string.
+ * @returns - The capitalized string.
  */
 export const capitalize = <T extends string>(target: T) =>
   (target.charAt(0).toUpperCase() + target.slice(1)) as Capitalize<T>
@@ -11,7 +11,7 @@ export const capitalize = <T extends string>(target: T) =>
  * Returns a new string with the first character converted to lowercase.
  *
  * @param target - The string to be unCapitalized.
- * @return - The unCapitalized string.
+ * @returns - The unCapitalized string.
  */
 export const unCapitalize = <T extends string>(target: T) =>
   (target.charAt(0).toLowerCase() + target.slice(1)) as Uncapitalize<T>
@@ -21,7 +21,7 @@ export const unCapitalize = <T extends string>(target: T) =>
  * @param str need to split of primitive string
  * @param splitStr split params
  * @param num split limit
- * @return a new split array, length is num + 1
+ * @returns a new split array, length is num + 1
  */
 export function mulSplit(str: string, splitStr: string, num = -1) {
   const splitList = str.split(splitStr, num)
@@ -38,7 +38,7 @@ export function mulSplit(str: string, splitStr: string, num = -1) {
  * e.g. underlineToHump('hello_word') => 'helloWord'
  *
  * @param target - The underline-separated string to convert.
- * @return The camel case version of the input string.
+ * @returns The camel case version of the input string.
  */
 export function underlineToHump(target: string) {
   let isStartUnderline = true

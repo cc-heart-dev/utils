@@ -8,7 +8,7 @@ const createDateWithoutTimezoneOffset = (...rest: any[]) => {
 
 /**
  * Returns the current time in ISO string format.
- * @return  The current time in ISO string format.
+ * @returns  The current time in ISO string format.
  */
 export function getCurrentTimeISOString(): string {
   return createDateWithoutTimezoneOffset().toISOString()
@@ -57,7 +57,7 @@ function formatDate(
  * @param timeStamp - The timestamp to be formatted, in milliseconds.
  * @param formatter - Optional. A specific format string to format the date. Defaults to 'YYYY-MM-DD HH:mm:ss'.
  *
- * @return The formatted date string.
+ * @returns The formatted date string.
  *
  * @throws {Error} Throws an error if the timestamp is invalid or out of range.
  *
@@ -83,7 +83,7 @@ export function formatDateByTimeStamp(timeStamp: number, formatter?: string) {
  * @param dateString - A string representing the date.
  * @param formatter - Optional. A specific format string to format the date. Defaults to 'YYYY-MM-DD HH:mm:ss'.
  *
- * @return The formatted date string.
+ * @returns The formatted date string.
  *
  * @throws {Error} Throws an error if the date string is invalid or cannot be parsed into a Date object.
  *
@@ -112,7 +112,7 @@ export function formatDateTimeByString(dateString: string, formatter?: string) {
  * @param array - The array representing the date. This array should contain year, month, day, hour, minute, and second values.
  * @param formatter - Optional. A specific format string to format the date. Defaults to 'YYYY-MM-DD HH:mm:ss'.
  *
- * @return The formatted date string.
+ * @returns The formatted date string.
  *
  * @throws {Error} Throws an error if the array is invalid or does not contain the necessary values.
  *

@@ -1,7 +1,7 @@
 /**
  * This function does nothing.
  *
- * @return No return value.
+ * @returns No return value.
  */
 export const noop = () => {
   /** */

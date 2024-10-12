@@ -29,9 +29,8 @@ export async function executeConcurrency(
 
 /**
  * Invokes a queue.
- *
- * @param {Array<(...args: any) => any>} taskArray - An array of tasks to be executed.
- * @return {Promise<void>} - A promise that resolves when all tasks are completed.
+ * @param {Array.<function(...any): any>} taskArray - An array of tasks to be executed.
+ * @returns {Promise<void>} - A promise that resolves when all tasks are completed.
  */
 export function executeQueue(
   taskArray: Array<(...args: any) => any>
@@ -66,7 +65,7 @@ const definePrams = (params: any, index: number) => {
  * If a function returns a Promise, the next function is called with the resolved value.
  *
  * @param fns - The functions to pipe.
- * @return A new function that takes any number of arguments and pipes them through `fns`.
+ * @returns A new function that takes any number of arguments and pipes them through `fns`.
  */
 export function pipe(...fns: Array<Fn>) {
   return (...args: any[]) => {
@@ -87,7 +86,7 @@ export function pipe(...fns: Array<Fn>) {
  * If a function returns a Promise, the next function is called with the resolved value.
  *
  * @param fns - The functions to compose.
- * @return A new function that takes any number of arguments and composes them through `fns`.
+ * @returns A new function that takes any number of arguments and composes them through `fns`.
  */
 export function compose(...fns: Array<Fn>) {
   return pipe(...fns.reverse())
@@ -98,7 +97,7 @@ export function compose(...fns: Array<Fn>) {
  *
  * @param func - The function to be executed.
  * @param delay - The interval (in milliseconds) at which the function should be executed.
- * @return A function that, when called, clears the interval and stops the execution of the given function.
+ * @returns A function that, when called, clears the interval and stops the execution of the given function.
  */
 export function setintervalByTimeout(func: Function, delay: number) {
   let timer: number | NodeJS.Timeout | null = null
