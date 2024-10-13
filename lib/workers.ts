@@ -101,12 +101,15 @@ export function compose(...fns: Array<Fn>) {
  */
 export function setintervalByTimeout(func: Function, delay: number) {
   let timer: number | NodeJS.Timeout | null = null
-
+  let cancelTimer: number | NodeJS.Timeout | null = null
   const fn = function () {
     timer = setTimeout(async () => {
       const res = func()
       if (isPromise(res)) {
         await res
+        if (cancelTimer && cancelTimer === timer) {
+          return
+        }
       }
       fn()
     }, delay)
@@ -115,7 +118,7 @@ export function setintervalByTimeout(func: Function, delay: number) {
   const clearInterval = () => {
     if (timer) {
       clearTimeout(timer)
-      timer = null
+      cancelTimer = timer
     }
   }
   fn()
