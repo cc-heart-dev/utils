@@ -124,3 +124,5 @@ export function setintervalByTimeout(func: Function, delay: number) {
   fn()
   return clearInterval
 }
+
+export const setIntervalByTimeout = setintervalByTimeout
