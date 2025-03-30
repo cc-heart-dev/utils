@@ -1,7 +1,8 @@
 import {
   defineDebounceFn,
   defineOnceFn,
-  defineThrottleFn
+  defineThrottleFn,
+  defineSinglePromiseFn
 } from '../../lib/define'
 
 describe('defineDebounceFn', () => {
@@ -113,5 +114,78 @@ describe('defineThrottleFn', () => {
     throttledFn()
 
     expect(fn).toHaveBeenCalledTimes(2)
+  })
+})
+
+describe('defineSinglePromiseFn', () => {
+  beforeEach(() => {
+    jest.useFakeTimers()
+  })
+
+  afterEach(() => {
+    jest.restoreAllMocks()
+    jest.useRealTimers()
+  })
+
+  it('should call the callback function only once', async () => {
+    const mockFn = jest.fn(async () => {
+      await new Promise((resolve) => setTimeout(resolve, 100))
+      return 'result'
+    })
+
+    const singletonFn = defineSinglePromiseFn(mockFn)
+
+    const p1 = singletonFn()
+    const p2 = singletonFn()
+
+    expect(mockFn).toHaveBeenCalledTimes(1)
+
+    await jest.advanceTimersByTimeAsync(100)
+
+    const result1 = await p1
+    const result2 = await p2
+
+    expect(result1).toBe('result')
+    expect(result2).toBe('result')
+  })
+  it('should allow new calls after the Promise resolves', async () => {
+    const mockFn = jest.fn(async () => {
+      await new Promise((resolve) => setTimeout(resolve, 50))
+      return 'new result'
+    })
+
+    const singletonFn = defineSinglePromiseFn(mockFn)
+
+    let ret = singletonFn()
+    await jest.advanceTimersByTimeAsync(50)
+    await ret
+
+    ret = singletonFn()
+    await jest.advanceTimersByTimeAsync(50)
+
+    await ret
+
+    expect(mockFn).toHaveBeenCalledTimes(2)
+  })
+
+  it('should correctly handle a rejected Promise', async () => {
+    const mockFn = jest.fn(async () => {
+      await new Promise((_, reject) =>
+        setTimeout(() => reject(new Error('error occurred')), 50)
+      )
+    })
+
+    const singletonFn = defineSinglePromiseFn(mockFn)
+
+    const p1 = singletonFn()
+    expect(p1).rejects.toThrow('error occurred')
+
+    await jest.advanceTimersByTimeAsync(50)
+
+    const p2 = singletonFn()
+    const ret = expect(p2).rejects.toThrow('error occurred')
+    await jest.advanceTimersByTimeAsync(50)
+    await ret
+    expect(mockFn).toHaveBeenCalledTimes(2)
   })
 })

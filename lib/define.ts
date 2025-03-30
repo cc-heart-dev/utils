@@ -90,3 +90,24 @@ export function defineThrottleFn(fn: Fn, delay = 500) {
   }
   return throttle
 }
+
+/**
+ * defineSinglePromiseFn ensures that the provided function can only be called once at a time.
+ * If the function is invoked while it's still executing, it returns the same promise, avoiding multiple calls.
+ *
+ * @param fn - The function to be wrapped, which returns a promise.
+ * @returns A function that ensures the provided function is only executed once and returns a promise.
+ */
+export function defineSinglePromiseFn(fn: Fn) {
+  let ret: null | Promise<any> = null
+
+  return function () {
+    if (ret === null) {
+      ret = Promise.resolve(fn()).finally(() => {
+        ret = null
+      })
+    }
+
+    return ret
+  }
+}
