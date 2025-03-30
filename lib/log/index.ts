@@ -1,29 +1,29 @@
 const LOG_LEVELS = {
   ERROR: 0,
-  WARNING: 1,
+  WARN: 1,
   NORMAL: 2,
   DEBUG: 3,
-  TRACE: 4,
+  TRACE: 4
 }
 
 const ANSI_COLORS = {
-  [LOG_LEVELS.ERROR]: '\x1b[31m', // 红色
-  [LOG_LEVELS.WARNING]: '\x1b[33m', // 黄色
-  [LOG_LEVELS.NORMAL]: '\x1b[32m', // 绿色
-  [LOG_LEVELS.DEBUG]: '\x1b[34m', // 蓝色
-  [LOG_LEVELS.TRACE]: '\x1b[35m' // 紫色
+  [LOG_LEVELS.ERROR]: '\x1b[31m', // red
+  [LOG_LEVELS.WARN]: '\x1b[33m', // yellow
+  [LOG_LEVELS.NORMAL]: '\x1b[32m', // green
+  [LOG_LEVELS.DEBUG]: '\x1b[34m', // blue
+  [LOG_LEVELS.TRACE]: '\x1b[35m' // purple
 }
 
 const LOG_LEVEL_NAMES = {
   [LOG_LEVELS.ERROR]: 'error',
-  [LOG_LEVELS.WARNING]: 'warning',
+  [LOG_LEVELS.WARN]: 'warn',
   [LOG_LEVELS.NORMAL]: 'info',
   [LOG_LEVELS.DEBUG]: 'debug',
   [LOG_LEVELS.TRACE]: 'trace'
 }
 
 function isUnicodeSupported() {
-  // @ts-ignore
+  // @ts-expect-error: exprect error
   return typeof window === 'undefined'
 }
 
@@ -32,20 +32,17 @@ const s = (c: string, fallback: string) => (unicode ? c : fallback)
 
 const TYPE_ICONS = {
   error: s('✖', '×'),
-  fatal: s('✖', '×'),
-  ready: s('✔', '√'),
   warn: s('⚠', '‼'),
   info: s('ℹ', 'i'),
-  success: s('✔', '√'),
   debug: s('⚙', 'D'),
   trace: s('→', '→'),
-  fail: s('✖', '×'),
   start: s('◐', 'o'),
+  success: s('✔', '√'),
   log: ''
 }
 class Logger {
   private level: number
-  constructor(level = LOG_LEVELS.NORMAL) {
+  constructor(level = LOG_LEVELS.TRACE) {
     this.level = level
   }
 
@@ -61,7 +58,8 @@ class Logger {
     const levelName: string = LOG_LEVEL_NAMES[level]
     const icon = Reflect.get(TYPE_ICONS, levelName) || ''
     const timestamp = new Date().toLocaleString()
-    console.log(
+    const logMethod = level === LOG_LEVELS.ERROR ? 'error' : 'log'
+    console[logMethod](
       `${color}${icon}\x1b[0m [${levelName}] (${timestamp}) ${message}`
     )
   }
@@ -70,15 +68,15 @@ class Logger {
     this.log(LOG_LEVELS.ERROR, message)
   }
 
-  warning(message: string) {
-    this.log(LOG_LEVELS.WARNING, message)
-  }
-
-  normal(message: string) {
-    this.log(LOG_LEVELS.NORMAL, message)
+  warn(message: string) {
+    this.log(LOG_LEVELS.WARN, message)
   }
 
   info(message: string) {
+    this.log(LOG_LEVELS.NORMAL, message)
+  }
+
+  debug(message: string) {
     this.log(LOG_LEVELS.DEBUG, message)
   }
 
