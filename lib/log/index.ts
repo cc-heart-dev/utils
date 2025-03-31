@@ -40,7 +40,7 @@ const TYPE_ICONS = {
   success: s('✔', '√'),
   log: ''
 }
-class Logger {
+export class Logger {
   private level: number
   constructor(level = LOG_LEVELS.TRACE) {
     this.level = level
@@ -84,5 +84,3 @@ class Logger {
     this.log(LOG_LEVELS.TRACE, message)
   }
 }
-
-export default Logger

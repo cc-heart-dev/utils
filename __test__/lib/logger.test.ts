@@ -1,4 +1,4 @@
-import Logger from '../../lib/log/index'
+import { Logger } from '../../lib/log/index'
 
 describe('logger', () => {
   it('logger test', () => {

@@ -252,19 +252,17 @@ describe('setintervalByTimeout', () => {
   })
 
   test('setintervalByTimeout should cancel next invoke when clearMyInterval is called', async () => {
-
     jest.useFakeTimers()
 
     const mockFn = jest.fn()
     const fn = () => {
-      return new Promise<void>(resolve => {
+      return new Promise<void>((resolve) => {
         setTimeout(() => {
           mockFn()
           resolve()
         }, 1000)
       })
     }
-
 
     const clearMyInterval = setintervalByTimeout(fn, 500)
 
