@@ -1,5 +1,4 @@
 import {
-  isArrayEquals,
   hasOwn,
   isObject,
   isFn,
@@ -16,30 +15,6 @@ import {
   isValidDate,
   isPropertyKey
 } from '../../lib'
-
-describe('isArrayEquals', () => {
-  it('should return true if two arrays are equal', () => {
-    expect(isArrayEquals([1, 3, 2], [1, 2, 3])).toBe(true)
-    expect(isArrayEquals([], [])).toBe(true)
-    const arr = [1, 2, 3]
-    expect(isArrayEquals(arr, arr)).toBe(true)
-  })
-
-  it('should return false if two arrays are not equal', () => {
-    expect(isArrayEquals([1, 2], [1, 1])).toBe(false)
-    expect(isArrayEquals([1, 2], [1, 2, 3])).toBe(false)
-  })
-
-  it('should return true if two arrays are equal by id', () => {
-    expect(
-      isArrayEquals(
-        [{ id: 1 }, { id: 2 }],
-        [{ id: 1 }, { id: 2 }],
-        (a, b) => a.id === b.id
-      )
-    ).toBe(true)
-  })
-})
 
 describe('hasOwnProperty', () => {
   it('should return true if the property exists', () => {

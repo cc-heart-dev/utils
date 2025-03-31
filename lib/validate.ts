@@ -128,34 +128,6 @@ export function isPromise(val: unknown): val is Promise<unknown> {
 }
 
 /**
- * @deprecated v6.0.0 is deprecated
- *
- * Checks if two arrays are equal.
- *
- * @param firstArr - The first array to compare.
- * @param secondArr - The second array to compare.
- * @returns Returns true if the arrays are equal, otherwise false.
- */
-export function isArrayEquals(
-  firstArr: unknown[],
-  secondArr: unknown[],
-  compareFunc?: (a: any, b: any) => boolean
-): boolean {
-  if (firstArr.length !== secondArr.length) return false
-  if (firstArr === secondArr) return true
-  const sliceFirst = firstArr.slice().sort()
-  const sliceSecond = secondArr.slice().sort()
-  for (let i = 0; i < firstArr.length; i++) {
-    if (
-      sliceFirst[i] !== sliceSecond[i] &&
-      (!isFn(compareFunc) || !compareFunc(sliceFirst[i], sliceSecond[i]))
-    )
-      return false
-  }
-  return true
-}
-
-/**
  * Checks if the given object has its own property.
  *
  * @param obj - The object to check.

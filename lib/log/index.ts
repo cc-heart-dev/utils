@@ -23,7 +23,7 @@ const LOG_LEVEL_NAMES = {
 }
 
 function isUnicodeSupported() {
-  // @ts-expect-error: exprect error
+  // @ts-expect-error: expect error
   return typeof window === 'undefined'
 }
 
