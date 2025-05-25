@@ -1,5 +1,7 @@
+import { throws } from 'assert'
 import type { QueryStringToObject } from '../typings/url'
 import { hasOwn, isObject } from './validate'
+import { Reflection } from 'typedoc'
 
 export function parseKey(
   obj: Record<PropertyKey, any>,
@@ -68,27 +70,50 @@ export function queryStringToObject<
   return result
 }
 
+const buildQueryParams = (
+  queryMap: Record<string, string>,
+  keyPath: string,
+  value: unknown
+) => {
+  if (Array.isArray(value)) {
+    value.forEach((item, index) => {
+      buildQueryParams(queryMap, `${keyPath}[${index}]`, item)
+    })
+    return
+  }
+
+  if (isObject(value)) {
+    Object.keys(value).forEach((key) => {
+      const val = Reflect.get(value, key)
+      const nestedKeyPath = [keyPath, key].filter(Boolean).join('.')
+      buildQueryParams(queryMap, nestedKeyPath, val ?? '')
+    })
+    return
+  }
+
+  queryMap[encodeURIComponent(keyPath)] = encodeURIComponent(String(value))
+}
+
 /**
  * Converts an object to a query string.
  *
  * @param data - The object to convert.
  * @returns The query string representation of `data`.
  */
-export function objectToQueryString<T extends Record<PropertyKey, any>>(
-  data: T
-): string {
-  const res: Array<string> = []
-  for (const key in data) {
-    if (hasOwn(data, key)) {
-      if (Array.isArray(data[key])) {
-        res.push(arrayToQueryString(data[key], key))
-      } else {
-        res.push(`${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
-      }
-    }
-  }
 
-  return res.join('&')
+export function objectToQueryString<T extends Record<PropertyKey, any>>(
+  input: T
+): string {
+  if (!isObject(input) && !Array.isArray(input))
+    throw new Error('input must be an object or an array')
+
+  const queryMap: Record<string, string> = {}
+
+  buildQueryParams(queryMap, '', input)
+
+  return Object.entries(queryMap)
+    .map(([key, val]) => `${key}=${val}`)
+    .join('&')
 }
 
 /**
@@ -127,40 +152,4 @@ export function basename(path: string, suffix?: string) {
     return str.replace(new RegExp(suffix + '$'), '')
   }
   return str
-}
-
-/**
- * Convert a multi-dimensional array to a query string.
- * @param array The multi-dimensional array to convert.
- * @param field The field name to use in the query string.
- * @returns The generated query string.
- */
-export function arrayToQueryString(array: Array<unknown>, field: string) {
-  let queryString = ''
-
-  function buildQueryString(arr: Array<unknown>, prefix: string) {
-    arr.forEach((element, index) => {
-      if (Array.isArray(element)) {
-        buildQueryString(
-          element,
-          `${prefix}${encodeURIComponent(`[${index}]`)}`
-        )
-      } else if (isObject(element)) {
-        for (const key in element) {
-          if (hasOwn(element, key)) {
-            queryString += `${prefix}${encodeURIComponent(`[${index}]`)}.${encodeURIComponent(key)}=${encodeURIComponent(String(Reflect.get(element, key)))}&`
-          }
-        }
-      } else {
-        queryString += `${prefix}${encodeURIComponent(`[${index}]`)}=${encodeURIComponent(String(element))}&`
-      }
-    })
-  }
-
-  buildQueryString(array, field)
-
-  // Remove the trailing '&' if present
-  queryString = queryString.slice(0, -1)
-
-  return queryString
 }
