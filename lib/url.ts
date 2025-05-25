@@ -1,7 +1,5 @@
-import { throws } from 'assert'
 import type { QueryStringToObject } from '../typings/url'
-import { hasOwn, isObject } from './validate'
-import { Reflection } from 'typedoc'
+import { isObject } from './validate'
 
 export function parseKey(
   obj: Record<PropertyKey, any>,
