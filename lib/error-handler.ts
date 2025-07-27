@@ -1,4 +1,5 @@
-import { isFn, isObject, isStr } from './validate'
+import { isFn, isObject, isStr, isPromise } from './validate'
+import type { Fn } from '../dist/types/helper'
 
 /**
  * Formats an error object into a string representation.
@@ -27,3 +28,42 @@ export function formatErrorToString(
 
   return defaultErrorString
 }
+
+
+/**
+ * Creates a function factory with error handling capabilities
+ *
+ * @param handleError - Error handling function to process exceptions during execution
+ * @returns Returns a new function that can execute target functions with automatic error handling
+ *
+ * @example
+ * ```ts
+ * const errorHandler = (error) => console.error(error);
+ * const safeExecute = invokeWithErrorHandlingFactory(errorHandler);
+ *
+ * // Execute regular function
+ * safeExecute(() => { throw new Error('test') });
+ *
+ * // Execute async function
+ * safeExecute(async () => { throw new Error('async test') });
+ * ```
+ */
+export const invokeWithErrorHandlingFactory = (handleError: Fn) => {
+  return (handler: Fn, context?: unknown, args?: Array<unknown>) => {
+    let res
+    try {
+      res = args ? handler.apply(context, args) : handler.call(context)
+
+      if (isPromise(res)) {
+        res.catch((e) => {
+          return handleError(e)
+        })
+      }
+    } catch (e) {
+      handleError(e)
+    }
+
+    return res
+  }
+}
+

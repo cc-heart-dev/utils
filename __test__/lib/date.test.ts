@@ -2,7 +2,8 @@ import {
   getCurrentTimeISOString,
   formatDateByTimeStamp,
   formatDateTimeByString,
-  formatDateByArray
+  formatDateByArray,
+  formatDate
 } from '../../lib/date'
 import { isValidDate } from '../../lib/validate'
 
@@ -15,6 +16,121 @@ describe('getCurrentTimeISOString', () => {
   test('should return a string in UTC timezone', () => {
     const result = getCurrentTimeISOString()
     expect(result.endsWith('Z')).toBe(true)
+  })
+})
+
+describe('formatDate', () => {
+  const testDate = new Date(2024, 0, 15, 14, 30, 45) // January 15, 2024, 14:30:45
+
+  test('should format date with default formatter', () => {
+    const result = formatDate(testDate)
+    expect(result).toBe('2024-01-15 14:30:45')
+  })
+
+  test('should format date with custom formatter', () => {
+    const result = formatDate(testDate, 'DD/MM/YYYY hh:mm:ss')
+    expect(result).toBe('15/01/2024 14:30:45')
+  })
+
+  test('should format date with partial formatter', () => {
+    const result = formatDate(testDate, 'YYYY-MM-DD')
+    expect(result).toBe('2024-01-15')
+  })
+
+  test('should format date with time only formatter', () => {
+    const result = formatDate(testDate, 'hh:mm:ss')
+    expect(result).toBe('14:30:45')
+  })
+
+  test('should format date with mixed formatter', () => {
+    const result = formatDate(testDate, 'DD-MM-YYYY at hh:mm')
+    expect(result).toBe('15-01-2024 at 14:30')
+  })
+
+  test('should format date in UTC when utc=true', () => {
+    const utcDate = new Date('2024-01-15T14:30:45.000Z')
+    const result = formatDate(utcDate, 'YYYY-MM-DD hh:mm:ss', true)
+    expect(result).toBe('2024-01-15 14:30:45')
+  })
+
+  test('should format date in local time when utc=false', () => {
+    const utcDate = new Date('2024-01-15T14:30:45.000Z')
+    const result = formatDate(utcDate, 'YYYY-MM-DD hh:mm:ss', false)
+    // The result will depend on the local timezone, but we can check the format
+    expect(result).toMatch(/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/)
+  })
+
+  test('should handle single digit values with zero padding', () => {
+    const singleDigitDate = new Date(2024, 0, 5, 9, 5, 3) // January 5, 2024, 09:05:03
+    const result = formatDate(singleDigitDate)
+    expect(result).toBe('2024-01-05 09:05:03')
+  })
+
+  test('should handle edge case dates', () => {
+    // Test leap year
+    const leapYearDate = new Date(2024, 1, 29, 12, 0, 0) // February 29, 2024
+    const result = formatDate(leapYearDate, 'YYYY-MM-DD')
+    expect(result).toBe('2024-02-29')
+  })
+
+  test('should handle year boundaries', () => {
+    // Test New Year
+    const newYearDate = new Date(2024, 0, 1, 0, 0, 0) // January 1, 2024, 00:00:00
+    const result = formatDate(newYearDate)
+    expect(result).toBe('2024-01-01 00:00:00')
+  })
+
+  test('should handle end of year', () => {
+    // Test New Year's Eve
+    const endYearDate = new Date(2023, 11, 31, 23, 59, 59) // December 31, 2023, 23:59:59
+    const result = formatDate(endYearDate)
+    expect(result).toBe('2023-12-31 23:59:59')
+  })
+
+  test('should handle UTC vs local time differences', () => {
+    // Create a date that will have different values in UTC vs local time
+    const date = new Date(2024, 0, 15, 14, 30, 45)
+    
+    const localResult = formatDate(date, 'YYYY-MM-DD hh:mm:ss', false)
+    const utcResult = formatDate(date, 'YYYY-MM-DD hh:mm:ss', true)
+    
+    // Results should be valid date format strings
+    expect(localResult).toMatch(/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/)
+    expect(utcResult).toMatch(/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/)
+  })
+
+  test('should handle formatter without any placeholders', () => {
+    const result = formatDate(testDate, 'Today is a good day')
+    expect(result).toBe('Today is a good day')
+  })
+
+  test('should handle empty formatter', () => {
+    const result = formatDate(testDate, '')
+    expect(result).toBe('')
+  })
+
+  test('should handle formatter with repeated placeholders', () => {
+    const result = formatDate(testDate, 'YYYY-YYYY MM-MM DD-DD')
+    expect(result).toBe('2024-2024 01-01 15-15')
+  })
+
+  test('should handle all UTC date methods', () => {
+    const utcDate = new Date('2024-06-15T14:30:45.000Z')
+    const result = formatDate(utcDate, 'YYYY-MM-DD hh:mm:ss', true)
+    expect(result).toBe('2024-06-15 14:30:45')
+  })
+
+  test('should handle all local date methods', () => {
+    const localDate = new Date(2024, 5, 15, 14, 30, 45) // June 15, 2024
+    const result = formatDate(localDate, 'YYYY-MM-DD hh:mm:ss', false)
+    expect(result).toBe('2024-06-15 14:30:45')
+  })
+
+  test('should handle invalid date object', () => {
+    const invalidDate = new Date('invalid')
+    const result = formatDate(invalidDate)
+    // Invalid date will produce NaN values, which will be converted to strings
+    expect(result).toMatch(/NaN/)
   })
 })
 

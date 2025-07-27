@@ -8,6 +8,8 @@ describe('logger', () => {
     logger.error('error')
     logger.trace('trace')
     logger.warn('wraning')
+    logger.start('start')
+    logger.success('success')
     expect(true).toBe(true)
   })
 })

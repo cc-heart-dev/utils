@@ -1,5 +1,17 @@
 import { isValidDate } from './validate'
 
+/**
+ * Creates a Date object without timezone offset adjustment.
+ * This function creates a new Date object and adjusts it by subtracting the timezone offset,
+ * effectively creating a date that represents the same local time but in UTC.
+ *
+ * @param rest - Arguments to pass to the Date constructor
+ * @returns A Date object adjusted for timezone offset
+ *
+ * @example
+ * const date = createDateWithoutTimezoneOffset(2024, 0, 1, 12, 0, 0);
+ * console.log(date.toISOString()); // Returns ISO string without timezone offset
+ */
 const createDateWithoutTimezoneOffset = (...rest: any[]) => {
   const date = new Date(...(rest as []))
   date.setMinutes(date.getMinutes() - date.getTimezoneOffset())
@@ -14,11 +26,35 @@ export function getCurrentTimeISOString(): string {
   return createDateWithoutTimezoneOffset().toISOString()
 }
 
+/**
+ * Formats a number to a string with leading zeros to reach the specified length.
+ *
+ * @param date - The number to format
+ * @param maxLength - The desired length of the resulting string
+ * @returns A string representation of the number with leading zeros
+ *
+ * @example
+ * formatDateString(5, 2); // Returns "05"
+ * formatDateString(123, 4); // Returns "0123"
+ */
 function formatDateString(date: number, maxLength: number) {
   return String(date).padStart(maxLength, '0')
 }
 
-function formatDate(
+/**
+ * Formats a Date object according to the specified formatter string.
+ *
+ * @param date - The Date object to format
+ * @param formatter - The format string. Supports YYYY (year), MM (month), DD (day), hh (hours), mm (minutes), ss (seconds)
+ * @param utc - Whether to use UTC time instead of local time
+ * @returns The formatted date string
+ *
+ * @example
+ * const date = new Date(2024, 0, 1, 12, 30, 45);
+ * formatDate(date, 'YYYY-MM-DD hh:mm:ss'); // Returns "2024-01-01 12:30:45"
+ * formatDate(date, 'DD/MM/YYYY', true); // Returns "01/01/2024" in UTC
+ */
+export function formatDate(
   date: Date,
   formatter = 'YYYY-MM-DD hh:mm:ss',
   utc = false
@@ -38,17 +74,17 @@ function formatDate(
     2
   )
   const seconds = formatDateString(
-    date[utc ? 'getUTCMinutes' : 'getSeconds'](),
+    date[utc ? 'getUTCSeconds' : 'getSeconds'](),
     2
   )
 
   return formatter
-    .replace('YYYY', year)
-    .replace('MM', month)
-    .replace('DD', day)
-    .replace('hh', hours)
-    .replace('mm', minutes)
-    .replace('ss', seconds)
+    .replaceAll('YYYY', year)
+    .replaceAll('MM', month)
+    .replaceAll('DD', day)
+    .replaceAll('hh', hours)
+    .replaceAll('mm', minutes)
+    .replaceAll('ss', seconds)
 }
 
 /**
