@@ -64,8 +64,7 @@ describe('invokeWithErrorHandlingFactory', () => {
       const result = safeExecute(mockFn)
       expect(result).toBeInstanceOf(Promise)
 
-      // 等待异步错误处理完成
-      await result.catch(() => {})
+      await result.catch(() => { /** error handling */ })
 
       expect(mockFn).toHaveBeenCalledTimes(1)
       expect(errorHandler).toHaveBeenCalledWith(error)
@@ -256,7 +255,7 @@ describe('formatErrorToString', () => {
       const result = formatErrorToString(error, '', { errorLimit: 1000 })
 
       expect(typeof result).toBe('string')
-      // 实际的堆栈行数应该少于1000行
+
       expect(result.split('\n').length).toBeLessThan(1000)
     })
   })
