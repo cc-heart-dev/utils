@@ -126,3 +126,22 @@ export function setintervalByTimeout(func: Function, delay: number) {
 }
 
 export const setIntervalByTimeout = setintervalByTimeout
+
+/**
+ * A helper function that wraps a Promise and returns a tuple of [error, data].
+ * If the Promise resolves successfully, the first element of the tuple will be null, and the second element will be the resolved value.
+ * If the Promise is rejected, the first element of the tuple will be the error, and the second element will be undefined.
+ *
+ * @param promise - The Promise to wrap.
+ * @returns A Promise that resolves to a tuple of [error, data].
+ */
+export const awaitTo = async <T>(
+  promise: Promise<T>
+): Promise<[unknown | null, T | undefined]> => {
+  try {
+    const data = await promise
+    return [null, data]
+  } catch (error: unknown) {
+    return [error, undefined]
+  }
+}

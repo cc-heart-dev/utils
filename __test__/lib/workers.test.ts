@@ -3,7 +3,8 @@ import {
   executeQueue,
   pipe,
   compose,
-  setintervalByTimeout
+  setintervalByTimeout,
+  awaitTo
 } from '../../lib/workers'
 
 const warningFn = (console.warn = jest.fn())
@@ -274,5 +275,88 @@ describe('setintervalByTimeout', () => {
     await jest.advanceTimersByTimeAsync(2000)
     expect(mockFn).toHaveBeenCalledTimes(1)
     jest.useRealTimers()
+  })
+})
+
+describe('awaitTo', () => {
+  test('should return [null, data] when promise resolves successfully', async () => {
+    const successPromise = Promise.resolve('success data')
+    const [error, data] = await awaitTo(successPromise)
+    
+    expect(error).toBeNull()
+    expect(data).toBe('success data')
+  })
+
+  test('should return [error, undefined] when promise rejects', async () => {
+    const errorMessage = 'Something went wrong'
+    const failurePromise = Promise.reject(new Error(errorMessage))
+    const [error, data] = await awaitTo(failurePromise)
+    
+    expect(error).toBeInstanceOf(Error)
+    expect((error as Error).message).toBe(errorMessage)
+    expect(data).toBeUndefined()
+  })
+
+  test('should handle promise that resolves with undefined', async () => {
+    const undefinedPromise = Promise.resolve(undefined)
+    const [error, data] = await awaitTo(undefinedPromise)
+    
+    expect(error).toBeNull()
+    expect(data).toBeUndefined()
+  })
+
+  test('should handle promise that resolves with null', async () => {
+    const nullPromise = Promise.resolve(null)
+    const [error, data] = await awaitTo(nullPromise)
+    
+    expect(error).toBeNull()
+    expect(data).toBeNull()
+  })
+
+  test('should handle promise that resolves with complex object', async () => {
+    const complexObject = { id: 1, name: 'test', items: [1, 2, 3] }
+    const objectPromise = Promise.resolve(complexObject)
+    const [error, data] = await awaitTo(objectPromise)
+    
+    expect(error).toBeNull()
+    expect(data).toEqual(complexObject)
+  })
+
+  test('should handle promise that rejects with string error', async () => {
+    const stringError = 'String error message'
+    const stringErrorPromise = Promise.reject(stringError)
+    const [error, data] = await awaitTo(stringErrorPromise)
+    
+    expect(error).toBe(stringError)
+    expect(data).toBeUndefined()
+  })
+
+  test('should handle promise that rejects with null', async () => {
+    const nullErrorPromise = Promise.reject(null)
+    const [error, data] = await awaitTo(nullErrorPromise)
+    
+    expect(error).toBeNull()
+    expect(data).toBeUndefined()
+  })
+
+  test('should handle async function that throws', async () => {
+    const asyncFunction = async () => {
+      throw new Error('Async error')
+    }
+    const [error, data] = await awaitTo(asyncFunction())
+    
+    expect(error).toBeInstanceOf(Error)
+    expect((error as Error).message).toBe('Async error')
+    expect(data).toBeUndefined()
+  })
+
+  test('should handle async function that returns value', async () => {
+    const asyncFunction = async () => {
+      return 'async result'
+    }
+    const [error, data] = await awaitTo(asyncFunction())
+    
+    expect(error).toBeNull()
+    expect(data).toBe('async result')
   })
 })
