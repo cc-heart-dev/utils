@@ -6,5 +6,4 @@ publish.sh
 package-lock.json
 yarn.lock
 
-docs/*
 dist/*
