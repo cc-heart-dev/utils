@@ -34,10 +34,6 @@ jobs:
       - name: Build utils Docs
         run: pnpm doc
 
-      - name: Disable Jekyll
-        run: touch docs/.nojekyll
-
-
       - name: Deploy to docs branch
         uses: JamesIves/github-pages-deploy-action@v4.6.3
         with:
@@ -47,4 +43,5 @@ jobs:
           repository-name: cc-heart-dev/utils
           target-folder: ./
           single-commit: true
+          dotfiles: true
           clean: true
